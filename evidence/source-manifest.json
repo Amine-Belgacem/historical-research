@@ -1,0 +1,104 @@
+{
+  "recorded": "2026-10-26",
+  "sourceArchive": "digital-archive-2000s (separate private repository)",
+  "reviewedCommit": "4c238550057c64590882bc3e62c4ca7c5aa4f3ab",
+  "note": "Metadata only. Hashes identify the files reviewed; original contents are not included. Dates and authorship cannot be inferred from hashes.",
+  "files": [
+    {
+      "id": "rar-main",
+      "archiveRelativePath": "WinRAR_RAR_Research_2008/WinRAR_Reverse_Engineering_Notes_2008.txt",
+      "bytes": 15245,
+      "sha256": "95ec4f5899bafd6b8c187c3f303192f55178ac095cde604bc6d7f350d0c9a573"
+    },
+    {
+      "id": "rar-empty-comparison",
+      "archiveRelativePath": "WinRAR_RAR_Research_2008/WinRAR_Empty_RAR_Header_Comparison_2008.txt",
+      "bytes": 1169,
+      "sha256": "699c17479405d2f18c42bd36d5ea85c224a6ab1db59df677319ec97e0e94114a"
+    },
+    {
+      "id": "rar-hex-comparison",
+      "archiveRelativePath": "WinRAR_RAR_Research_2008/WinRAR_Password_Content_HEX_Analysis_2008.txt",
+      "bytes": 2104,
+      "sha256": "6c40058d3603924ac8afcdc07ef67f4a88f718ece5fcfb42167a7dc25979fa4a"
+    },
+    {
+      "id": "msn-notebook",
+      "archiveRelativePath": "MSN_Messenger_Network_Research_2006.txt",
+      "bytes": 12148,
+      "sha256": "acb2a848f4a0ee647fabfa2c852f1ca6cbc6f3a9d1db66556336e1f72f010553"
+    },
+    {
+      "id": "appender-builder",
+      "archiveRelativePath": "exe-appender/frmMain.frm",
+      "bytes": 3918,
+      "sha256": "92c8862aa65767b02a24aca3e6242309f58e111617e83f4eb2db16e3a44f12d7"
+    },
+    {
+      "id": "appender-reader",
+      "archiveRelativePath": "exe-appender/rdfce source/frmMain.frm",
+      "bytes": 9516,
+      "sha256": "e84396e961be50b140e51ec730fb36dd79981a651505cb97c6ee9f1fa1c2bd0e"
+    },
+    {
+      "id": "msn-application",
+      "archiveRelativePath": "msn-hotmail-kira/hotmail kira.frm",
+      "bytes": 13301,
+      "sha256": "2185b3d2a295d65f26805daead0a33cd2789339d1f5d481e08fd550212d2a5b1"
+    },
+    {
+      "id": "msn-project",
+      "archiveRelativePath": "msn-hotmail-kira/hotmail kira.vbp",
+      "bytes": 1576,
+      "sha256": "a634336fa144a4521f0d47205707c923892a1b0f7109a0a4256a15e1995fc718"
+    },
+    {
+      "id": "ftp-prototype",
+      "archiveRelativePath": "keylogger-unfinished/Form1.frm",
+      "bytes": 25553,
+      "sha256": "54abd599c8ab50e95df351ff547939f25a74a227ed14e1bb4a16a253b5d6b169"
+    },
+    {
+      "id": "unfinished-server-project",
+      "archiveRelativePath": "keylogger-unfinished/seveur/Projet1.vbp",
+      "bytes": 1264,
+      "sha256": "9cfcca94b48d06fb735dca4ea362f1063d28dccecb34f98bae2605dbf3497d87"
+    },
+    {
+      "id": "mui-credit-example",
+      "archiveRelativePath": "keylogger-unfinished/Controls/ctlMUICommand.ctl",
+      "bytes": 36704,
+      "sha256": "ad322032df5cc1503a8f685359fa281245c88cc918703a11ab651bb8761c61c2"
+    },
+    {
+      "id": "binder-helper-credit",
+      "archiveRelativePath": "keylogger-unfinished/ModBinder.bas",
+      "bytes": 8992,
+      "sha256": "b0a2b323ea8886fe96aee917b95f09e996fe738e19aadb352b939c757177991b"
+    },
+    {
+      "id": "rapidshare-finder",
+      "archiveRelativePath": "rapidshare-account-finder/Main.frm",
+      "bytes": 4124,
+      "sha256": "1eeaafa5da7ae0e290a1ca2514817942835487059261513abeb58406724226dc"
+    },
+    {
+      "id": "rapidshare-bruteforcer",
+      "archiveRelativePath": "rapidshare-account-bruteforcer/Main.frm",
+      "bytes": 6036,
+      "sha256": "9069ad88ca100ff885e4c93624bc0b55e4fb6dc53ec3e41060408f7b8c2d3087"
+    },
+    {
+      "id": "batch-generator",
+      "archiveRelativePath": "password-gen.bat",
+      "bytes": 14268,
+      "sha256": "6ae0518b7ba1c416e2f4fd6495c11c42f9b97bf0f50ff0ab87d3edde8300d7a2"
+    }
+  ],
+  "webSecurityEvidence": {
+    "period": "circa 2007-2008, from author recollection",
+    "location": "separate private archive",
+    "description": "Database-related records associated with the investigation; no raw records, target names, individual credentials, or per-record hashes are included.",
+    "methodReconstructed": false
+  }
+}
