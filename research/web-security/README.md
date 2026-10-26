@@ -2,7 +2,7 @@
 
 **Period:** approximately 2007–2008, from my recollection.  
 **Form:** historical evidence summary; technical narrative pending reconstruction.  
-**Evidence:** retained database-related files in a separate private archive.
+**Evidence:** four redacted source excerpts and a computed structural summary; full originals remain in a separate private archive.
 
 I independently investigated web systems around 2007–2008, and retained database records were a result of that work. This page records that history while distinguishing my recollection from what can be established by examining the surviving files.
 
@@ -29,9 +29,13 @@ This retrospective therefore does not assign a vulnerability category, claim a p
 | How the retained results were obtained and which files belong to which investigation | Not yet reconstructed. |
 | Outcome, remediation, or disclosure | No claim made from the surviving files alone. |
 
-## How evidence will be presented
+## Attached evidence
 
-The final narrative can use an anonymized system diagram, a description of the observed behavior, and synthetic examples illustrating the data structure. Any synthetic example must be labeled as such. Raw records, email lists, passwords, hashes of individual credentials, target URLs, and captured sessions are excluded from this collection.
+Inspect five original lines from each file, with all field values removed: [dataset A](../../evidence/web-security/dataset-a.redacted.txt), [dataset B](../../evidence/web-security/dataset-b.redacted.txt), [dataset C](../../evidence/web-security/dataset-c.redacted.txt), and [dataset D](../../evidence/web-security/dataset-d.redacted.txt).
+
+These are redacted source excerpts, not synthetic records. Their pipe boundaries and empty-field positions come directly from the originals. All values, including header-like values, have been replaced. The [structure summary](../../evidence/web-security/structure-summary.json) reports original file sizes, file-level hashes, line counts, and delimiter-field distributions. It does not infer a schema or count affected people.
+
+Any later reconstructed diagram or synthetic example will be labeled as such. Raw record values, email lists, passwords, hashes of individual credentials, target names, target URLs, and captured sessions are excluded.
 
 The technical significance of this investigation should be assessed after the method is reconstructed. Its existence is part of my history; its depth is not inferred from the size of the retained files.
 

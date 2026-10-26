@@ -6,6 +6,8 @@
 
 The archived project is named `msn-hotmail-kira`. Its interface presents account-freezing behavior. This retrospective records that original purpose while focusing on the application structure that can be studied from the source.
 
+The [attached original procedures](../../evidence/source/msn-application/message-framing.excerpt.vb) include the transaction counter, receive handler, and message reader. Original line ranges are marked; no procedure body has been fixed or modernized. The surrounding UI, authentication, and account-related operations are outside this excerpt.
+
 ## From received bytes to application actions
 
 ```mermaid

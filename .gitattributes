@@ -1,5 +1,13 @@
 * text=auto
 *.md text eol=lf
 *.json text eol=lf
+*.txt text eol=lf
+*.frm text eol=lf
+*.vbp text eol=lf
+*.vb text eol=lf
+*.bat text eol=lf
 .gitignore text eol=lf
 .gitattributes text eol=lf
+# Preserve whitespace in historical evidence rather than rewriting the originals.
+evidence/notes/** -whitespace
+evidence/source/** -whitespace

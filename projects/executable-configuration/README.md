@@ -6,6 +6,8 @@
 
 The surviving experiment separates an executable template from a builder that attaches configuration. It offers a compact example of moving information from a desktop form into a generated artifact, then reading it in the template application.
 
+Inspect the complete source text: [builder form](../../evidence/source/executable-configuration/builder/frmMain.frm), [builder project](../../evidence/source/executable-configuration/builder/Compiler.vbp), [template form](../../evidence/source/executable-configuration/template/frmMain.frm), and [template project](../../evidence/source/executable-configuration/template/prjRdfce.vbp). Existing comments and project metadata are retained. Referenced resources and compiled components are not included; these files provide source evidence rather than a complete build package.
+
 ## Architecture
 
 ```mermaid

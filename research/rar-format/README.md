@@ -6,6 +6,8 @@
 
 I investigated how changing a file, an archive option, or a password affected the bytes of a RAR archive. The surviving notes show an experimental approach: create small inputs, compare their representations, change selected bytes, and record how the application responded.
 
+Read the actual notebooks: [main research notes](../../evidence/notes/rar/01-reverse-engineering-notes.redacted.txt), [empty-header comparison](../../evidence/notes/rar/02-empty-header-comparison.txt), and [password/content hex analysis](../../evidence/notes/rar/03-password-content-hex-analysis.txt). The first has limited redactions; the other two have no content edits. All three are text-encoding and line-ending normalized copies, with the original reasoning preserved.
+
 ## Questions I explored
 
 - Which parts of an archive describe the file, and which represent its contents?

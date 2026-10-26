@@ -6,6 +6,8 @@
 
 I explored how an MSN client connected, moved between servers, and interacted with its sign-in service. The notes mix connection observations, possible explanations, request experiments, and reminders for later tests.
 
+Inspect the [actual notebook with redactions](../../evidence/notes/msn/network-research.redacted.txt) and the [original message-framing procedures](../../evidence/source/msn-application/message-framing.excerpt.vb). The notebook retains its line order; explicit markers replace sensitive captures. The source excerpts retain original procedure bodies without implementation edits.
+
 ## A sequence of questions
 
 | Question | What survives | What it supports |

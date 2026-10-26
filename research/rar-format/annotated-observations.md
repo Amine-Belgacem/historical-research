@@ -18,7 +18,7 @@ These are English paraphrases of surviving notes, selected and annotated in 2026
 - Empty-archive header comparison: supporting side-by-side observations.
 - Password/content hexadecimal analysis: numeric tables and hypotheses, partly repeated in the main notebook.
 
-The archive's exact file identifiers and hashes are recorded in the [source inventory](../../evidence/source-manifest.json). The diagrams and explanations here were prepared later.
+Read the attached [main notebook](../../evidence/notes/rar/01-reverse-engineering-notes.redacted.txt), [empty-header comparison](../../evidence/notes/rar/02-empty-header-comparison.txt), and [hex analysis](../../evidence/notes/rar/03-password-content-hex-analysis.txt). Exact file identifiers, original and published hashes, and redactions are recorded in the [source inventory](../../evidence/source-manifest.json). The diagrams and explanations here were prepared later.
 
 Technical cross-check: [RAR 3.30 format documentation](https://sources.debian.org/src/rar/3.30-2/technote.txt/) and [Microsoft DOS date/time documentation](https://learn.microsoft.com/en-us/windows/win32/sysinfo/ms-dos-date-and-time).
 

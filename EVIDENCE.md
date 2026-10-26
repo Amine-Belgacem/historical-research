@@ -10,15 +10,23 @@
 
 ## Source material
 
-The presentation was derived by read-only inspection of a separate private archive at commit `4c238550057c64590882bc3e62c4ca7c5aa4f3ab`. Selected notes and source are identified in [source-manifest.json](evidence/source-manifest.json). Hashes identify the reviewed files; they do not establish when the files were originally created or who authored every component.
+The presentation was derived by read-only inspection of a separate private archive at commit `4c238550057c64590882bc3e62c4ca7c5aa4f3ab`. Readers can inspect [attached evidence](evidence/README.md), including four notebooks, five complete source-text files, procedure and credit excerpts, and four field-redacted database samples.
+
+The [source manifest](evidence/source-manifest.json) distinguishes original file hashes from the hashes of the published copies. It records source encodings, original line counts, redaction locations, and excerpt ranges. The complete notebooks retain their original line order and count. Text is converted to UTF-8 with LF line endings; original implementations and credits are not corrected or rewritten. Hashes identify the files but do not establish historical dates or authorship.
 
 The original archive is not a submodule, copied history, or build dependency of this repository. These pages can be read independently. The original files and repository history have been preserved in place.
 
-## What is deliberately represented through summaries
+## Treatment of sensitive material
 
-The research pages retain experimental questions, observations, reasoning, and corrections. Email addresses, passwords, authentication strings, database records, captured logs, private server details, and raw account lists are omitted. The web security page uses no actual person or account record, including as a supposedly anonymized screenshot.
+The research pages retain experimental questions, observations, reasoning, and corrections. The MSN notebook has explicit redactions for account details, captured URLs, endpoint addresses, and authentication strings. The RAR notebook removes local profile names and long test-password strings; its hypotheses and arithmetic remain visible as originally written.
+
+The database excerpts come from the first five nonempty lines of each of four real archival files. Every nonempty field, including any header-like value, is replaced with `[REDACTED]`. Only pipe delimiters and empty-field positions survive. These are redacted source excerpts, not invented records; the accompanying aggregate summary is newly computed. No actual person or account value, individual credential hash, captured log, or raw account list is published.
 
 No surviving database file has been treated as proof of a particular vulnerability, access scope, extraction technique, or number of affected people. Line counts would not establish those conclusions.
+
+## Source-file scope
+
+The executable-configuration example includes the complete builder and template form/project text. Referenced `.frx` resources, OCXs, and executable templates are not included, so this is source evidence rather than a complete build package. The MSN and FTP examples contain selected original procedures with source-range comments; the surrounding application and account-related operations are omitted. The batch generator retains its original author banner. Separate credit excerpts preserve existing component attribution.
 
 ## Verification limits
 

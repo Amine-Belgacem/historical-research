@@ -30,6 +30,7 @@ Start with the RAR investigation for the clearest surviving record of my experim
 - [Timeline](TIMELINE.md): dates and how they were established.
 - [Evidence and editorial method](EVIDENCE.md): original observations, retrospective explanations, and open questions.
 - [Credits](CREDITS.md): bundled components and unresolved attribution.
-- [Source inventory](evidence/source-manifest.json): hashes of selected original source and notes, recorded without copying their contents.
+- [Attached evidence](evidence/README.md): original notebook text, selected source files, credited excerpts, and field-redacted database samples.
+- [Source inventory](evidence/source-manifest.json): original and published hashes, redaction locations, and excerpt line ranges.
 
-The web security page is an evidence summary pending reconstruction of the method. The remaining pages contain completed initial write-ups based on the available notes and source. No database records, account credentials, authentication strings, captured logs, executables, or operational account-checking tools are included.
+The web security page is an evidence summary pending reconstruction of the method. The remaining pages contain completed initial write-ups based on the available notes and source. Attached evidence includes notes, selected source, and fully field-redacted database excerpts. No raw database values, account credentials, authentication strings, captured logs, executables, or operational account-checking tools are included.
