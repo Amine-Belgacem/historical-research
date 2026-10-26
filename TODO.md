@@ -9,4 +9,14 @@ Cleanup requested for this repository:
 - [ ] Remove `web-security-investigation/originals/Email_List_Archive_2007.txt`.
 - [ ] Update the collection README, credits, timeline, and work introductions to remove references to the deleted material.
 
+## Project relationships
+
+- [ ] Present MSN Hotmail Kira as the application resulting from the MSN network investigation, as confirmed by the author. Update the overview and both work introductions to explain the progression from investigation to implementation.
+
+## EXE appender analysis
+
+- [ ] Examine the original builder, executable template, and FTP-related source more closely to understand their intended role and configuration flow.
+- [ ] Investigate the author's recollection that this was a way to create configured Trojan server executables by embedding new FTP connection settings. Compare the appender with the configuration builder in the unfinished VB6 project, and distinguish the recollection from behavior established by static inspection.
+- [ ] Update the EXE appender introduction with the resulting historical explanation. Preserve the original files unchanged.
+
 Keep the separate `digital-archive-2000s` repository untouched.
