@@ -4,6 +4,8 @@
 
 I investigated the connections used by an MSN client: which destinations it contacted, when connections opened and closed, how sign-in interacted with the messaging conversation, and what changed when connectivity changed.
 
+This investigation led to [MSN Hotmail Kira](../msn-hotmail-kira/README.md), the application in which I put the network and sign-in work into practice.
+
 ## Original file
 
 [MSN Messenger network research notebook](originals/MSN_Messenger_Network_Research_2006.txt)
@@ -20,6 +22,8 @@ The complete, unredacted notebook is kept here in its original bytes. Its filena
 
 The notes mix French, Tunisian Arabic transliteration, and technical English, preserving the original working style.
 
-The related [MSN Hotmail Kira application](../msn-hotmail-kira/README.md) contains the VB6 protocol code and its original supporting files.
+## From research to application
+
+The notebook preserves the investigation. [MSN Hotmail Kira](../msn-hotmail-kira/README.md) is its resulting application, with the original VB6 protocol code, forms, resources, and compiled program. Its implementation brings together socket message handling, command dispatch, connection transitions, and asynchronous sign-in requests.
 
 [Back to the collection](../README.md)

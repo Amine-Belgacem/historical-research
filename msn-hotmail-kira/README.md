@@ -2,7 +2,7 @@
 
 **2000s · Visual Basic 6 · MSN protocol application**
 
-An early application built around an MSN socket conversation and an asynchronous HTTP sign-in flow. Its original interface describes freeze and defreeze actions.
+The application resulting from my [MSN network investigation](../msn-network-investigation/README.md). I used that research to build an MSN socket conversation and an asynchronous HTTP sign-in flow. Its original interface describes freeze and defreeze actions.
 
 ## Original project
 
@@ -32,6 +32,6 @@ flowchart LR
 
 The source includes message framing, a transaction counter, command dispatch, redirect handling, and coordination between socket events, HTTP callbacks, timers, and UI actions.
 
-The accompanying [network investigation](../msn-network-investigation/README.md) preserves the original working notes.
+The [network investigation](../msn-network-investigation/README.md) preserves the working notes that led to this implementation. The two folders present successive stages of the same work: investigation followed by application development.
 
 [Back to the collection](../README.md)

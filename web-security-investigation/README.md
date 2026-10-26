@@ -30,14 +30,12 @@ The specific injection techniques, tools, and sequence of each investigation can
 
 ## Original files
 
-The [originals folder](originals/) contains the complete archived files, with their original names and contents:
+The [originals folder](originals/) contains the retained database files, with their original names and contents:
 
 - [Desscon database file](originals/raw_db_desscon_com.txt)
 - [DR / ZClub database file](originals/raw_db_dr_zclub_hu.txt)
 - [Eko Sulistya / UGM Physics database file](originals/raw_db_eko_sulistya_ugm_physics.txt)
 - [Unidentified Czech/Slovak website database file](originals/raw_db_unknown_czech_slovak_site.txt)
-- [Archived user/password list](originals/User_Password_List_Archive.txt)
-- [Archived email-list file](originals/Email_List_Archive_2007.txt)
 
 These are unredacted originals. This work stays within the private collection because its files contain personal and account-related material.
 
