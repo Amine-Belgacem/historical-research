@@ -8,8 +8,8 @@ My early projects and investigations into Windows applications, binary formats, 
 
 | Work | Period | Focus |
 |---|---|---|
-| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Comparing archives, inspecting bytes, and exploring file metadata and compression. |
-| [MSN network investigation](msn-network-investigation/README.md) | 2000s; original filename says 2006 | Network and sign-in research that led to the MSN Hotmail Kira application. |
+| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Archive structure, compression and timestamp findings, and original password-handling conclusions. |
+| [MSN network investigation](msn-network-investigation/README.md) | 2000s; original filename says 2006 | Failed-sign-in account-lockout discovery that led to MSN Hotmail Kira. |
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
 
 ## Applications and scripts
@@ -17,7 +17,7 @@ My early projects and investigations into Windows applications, binary formats, 
 | Work | Focus |
 |---|---|
 | [EXE appender](exe-appender/README.md) | A server-configuration builder experiment with embedded FTP settings and a matching executable template. |
-| [MSN Hotmail Kira](msn-hotmail-kira/README.md) | The application developed from the MSN network investigation. |
+| [MSN Hotmail Kira](msn-hotmail-kira/README.md) | Application of the historical account-lockout finding: continued failed sign-ins kept the owner unable to access their email. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [RapidShare account finder](rapidshare-account-finder/README.md) | List processing and response-based account checking. |
 | [RapidShare account brute-forcer](rapidshare-account-bruteforcer/README.md) | An early VB6 request-automation experiment. |
