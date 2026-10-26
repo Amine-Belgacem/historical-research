@@ -1,0 +1,8 @@
+Line 83: Class MSWinsockLib.Winsock of control sckMain was not a loaded control class.
+Line 90: Class ComctlLib.ProgressBar of control ProgressBar1 was not a loaded control class.
+Line 86: The property name _ExtentX in sckMain is invalid.
+Line 87: The property name _ExtentY in sckMain is invalid.
+Line 88: The property name _Version in sckMain is invalid.
+Line 96: The property name _ExtentX in ProgressBar1 is invalid.
+Line 97: The property name _ExtentY in ProgressBar1 is invalid.
+Line 98: The property name _Version in ProgressBar1 is invalid.

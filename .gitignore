@@ -1,18 +1,7 @@
-# Keep this collection focused on reviewed documentation and evidence metadata.
-.DS_Store
-Thumbs.db
-Desktop.ini
-*.exe
-*.dll
-*.ocx
-*.ext
-*.res
-*.log
-*.vbw
-MSSCCPRJ.SCC
-.env
-.env.*
-private/
-raw-data/
-credentials/
-node_modules/
+# Local additions outside the original collections.
+/.env
+/.env.*
+/node_modules/
+/.DS_Store
+/Thumbs.db
+/Desktop.ini

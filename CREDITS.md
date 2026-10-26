@@ -1,19 +1,16 @@
-# Credits and attribution
+# Credits
 
-The investigations and personal project work are presented as part of my early development history. Applications also contain bundled components and adapted material. Integration work and dependency authorship are distinct contributions.
+Original credits and project metadata are retained in the files alongside each work.
 
-| Material in the private archive | Surviving credit | Treatment in this collection |
-|---|---|---|
-| Four MUI controls | Gally Home Corp / Koak Design, copyright 2002 | Three original credit lines are attached. The control implementation and artwork are not republished. |
-| A routine in `ModBinder.bas` | “Encryption By skodaman” | The credited declaration line is attached; the routine body and binder implementation are omitted. It is not presented as an original cryptographic design. |
-| `password-gen.bat` | Banner credits “SwYaraB” | Cataloged as a historical artifact. Whether this credit corresponds to one of my aliases or an external author has not yet been established in this retrospective. |
-| Executable appender sample | Tutorial-style comments and project metadata naming “Softrix” survive; the identity behind that name has not been established here | Complete form/project text is attached with those comments and metadata retained. The article does not claim invention of the underlying technique or authorship of every line. |
-| MD5 helper module | No clear author credit in the inspected header | Used by the historical MSN project. Its provenance remains unresolved; its implementation is not republished here. |
+- The MUI controls in the [unfinished VB6 project](keylogger-unfinished/README.md) credit **Gally Home Corp / Koak Design**, copyright 2002.
+- A routine in that project's `ModBinder.bas` credits **skodaman**.
+- The [batch password generator](password-generator/README.md) credits **SwYaraB** in its original banner.
+- The [EXE appender](exe-appender/README.md) retains its original comments and **Softrix** project metadata.
 
-Microsoft Windows, Visual Basic, MSN, WinRAR, and other product names identify the historical technologies discussed. This collection is independent of their vendors.
+The collection includes both personal project work and the components used within it. Existing names and credits are preserved as written.
 
-Original notes mix French, Tunisian Arabic transliteration, and technical English. English explanations in this repository are retrospective paraphrases unless explicitly marked as a quotation.
+The original archive's [license](archive-context/originals/LICENSE) is retained with its [introduction](archive-context/originals/README.md). Component-specific credits remain in their original files.
 
-No license from the mixed private archive is automatically applied to this new collection or to third-party material. This repository does not currently grant a blanket license to redistribute the underlying historical source or data.
+Windows, Visual Basic, MSN, WinRAR, and other product names identify the historical technologies used.
 
-[Return to the collection](README.md)
+[Back to the collection](README.md)

@@ -1,0 +1,37 @@
+# MSN Hotmail Kira
+
+**2000s · Visual Basic 6 · MSN protocol application**
+
+An early application built around an MSN socket conversation and an asynchronous HTTP sign-in flow. Its original interface describes freeze and defreeze actions.
+
+## Original project
+
+- [Complete original files](originals/)
+- [VB6 project](originals/hotmail%20kira.vbp)
+- [Main form and protocol code](originals/hotmail%20kira.frm)
+- [MD5 helper](originals/mdlMD5.bas)
+- [Encryption helper](originals/modEncryption.bas)
+- [About form](originals/about.frm)
+
+Form resources, the compiled application, and the remaining original project files are preserved in the same folder.
+
+## Application structure
+
+```mermaid
+flowchart LR
+    A[Socket event] --> B[Receive buffer]
+    B --> C[Message and payload handling]
+    C --> D[Command dispatcher]
+    D --> E[Connection transitions]
+    D --> F[HTTP request]
+    F --> G[Response callback]
+    G --> D
+```
+
+*Diagram prepared in 2026 from the source.*
+
+The source includes message framing, a transaction counter, command dispatch, redirect handling, and coordination between socket events, HTTP callbacks, timers, and UI actions.
+
+The accompanying [network investigation](../msn-network-investigation/README.md) preserves the original working notes.
+
+[Back to the collection](../README.md)

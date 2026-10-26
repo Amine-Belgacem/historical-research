@@ -1,0 +1,57 @@
+
+fichier 2 = vides avec pass
+b = 42 hex 102 octet 66 dec
+. = E6 hex 346 octet 230 dec
+$ = 24  hex  036 dec 044 octett    
+t = 74 hex 164 octet 116 dec
+. = 84 hex  204 octet 
+. = 2e hex  056 octet 
+. = 10 hex    020 octet
+
+l---> a ligne1 fichier 1 =  ligne1 fichier 2
+
+fichier 2 (ligne 2) = 102 +346 +36+164+.. = 928 octet 
+
+fichier 1 = vides sans pass
+
+fichier 1(ligne 2) = 
+
+. = de hex  336 octet
+. = cc hex   314 octet 
+t = 74 hex 164 octet 116 dec
+espace = 20 hex 
+. = 80 hex   200 octet
+& = 26 hex   064
+fichier 1(ligne 2) =  1098 
+
+------->Difference 170 octetpour le fichier 1 <----
+
+
+
+. = hex EE 356 octet
+. = hex bb  273 octet
+A = hex 41  101 octet
+8 = hex 38  70 octet       ------------> fichier 1 (no pass) (ligne 3 )
+. = hex 2d  035 octet
+0 = hex 30  060 octet 
+. = hex 06  006  octet    = 901
+
+----------------------------
+
+. = hex EE 356 octet
+. = hex bb  273 octet
+A = hex 41  101 octet
+8 = hex 38  70 octet       ------------> fichier 2 (avec pass) (ligne 3 )
+. = hex 2d  035 octet
+3 = hex 30  063 octet 
+. = hex 06  006  octet   = 904
+
+------->Difference 3 octet pour le fichier 2 <----
+
+
+
+
+
+
+
+

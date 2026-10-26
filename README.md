@@ -1,36 +1,45 @@
 # Early software and systems research
 
-**Amine Belgacem · Personal work from the 2000s · Retrospective assembled in 2026**
+**Amine Belgacem · Personal work from the 2000s**
 
-This collection presents my early experiments with Windows applications, binary formats, network protocols, and web security. It explains the questions I explored, the software I assembled, and what the surviving evidence supports.
+My early projects and investigations into Windows applications, binary formats, network protocols, and web security. Each work has its own folder, with an introduction and its complete original files together.
 
-The original material remains in a separate private archive. These pages are a curated retrospective, with selected observations, reconstructed diagrams, and present-day annotations. Dates are approximate where the surviving records do not establish them.
+## Research
 
-## Research case studies
-
-| Investigation | What to explore | Evidence |
+| Work | Period | Focus |
 |---|---|---|
-| [Understanding the RAR format](research/rar-format/README.md) | Comparing controlled samples to understand metadata, compression options, and password-protected archives | Three surviving experiment notebooks labeled 2008 |
-| [Investigating MSN connections](research/msn-network/README.md) | Following connection changes, separating server roles, and examining an authentication flow | A network notebook and related VB6 source; exact date uncertain |
-| [Web security investigation, circa 2007–2008](research/web-security/README.md) | An early investigation whose retained results include database records | Surviving data artifacts and my recollection; the technical method still needs reconstruction |
+| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Comparing archives, inspecting bytes, and exploring file metadata and compression. |
+| [MSN network investigation](msn-network-investigation/README.md) | 2000s; original filename says 2006 | Connections, server roles, sign-in behavior, and protocol experiments. |
+| [Web security investigation](web-security-investigation/README.md) | Circa 2007–2008 | Investigation of web systems and the original retained database files. |
 
-## Software experiments
+## Applications and scripts
 
-| Project | Engineering topic | Presentation |
-|---|---|---|
-| [Executable configuration builder](projects/executable-configuration/README.md) | Builder/template separation and serialized configuration | Architecture walkthrough |
-| [FTP interface and unfinished tool](projects/vb6-prototype/README.md) | Event-driven desktop UI, file navigation, and component integration | Prototype retrospective |
-| [MSN protocol application](projects/msn-application/README.md) | Receive buffering, command dispatch, and asynchronous callbacks | Source walkthrough |
-| [Smaller experiments](projects/smaller-experiments.md) | List processing, request automation, and batch scripting | Short historical catalog |
+| Work | Focus |
+|---|---|
+| [EXE appender](exe-appender/README.md) | A VB6 configuration builder and executable template. |
+| [MSN Hotmail Kira](msn-hotmail-kira/README.md) | An early MSN protocol application. |
+| [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
+| [RapidShare account finder](rapidshare-account-finder/README.md) | List processing and response-based account checking. |
+| [RapidShare account brute-forcer](rapidshare-account-bruteforcer/README.md) | An early VB6 request-automation experiment. |
+| [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 
-Start with the RAR investigation for the clearest surviving record of my experimental process. The software walkthroughs explain the mechanisms visible in source without claiming that the old applications have been rebuilt or run today.
+## Other collections
 
-## Reading the collection
+- [Personal and design notes](personal-notes/README.md)
+- [Proxy sources](proxy-sources/README.md)
+- [Original archive introduction and license](archive-context/README.md)
 
-- [Timeline](TIMELINE.md): dates and how they were established.
-- [Evidence and editorial method](EVIDENCE.md): original observations, retrospective explanations, and open questions.
-- [Credits](CREDITS.md): bundled components and unresolved attribution.
-- [Attached evidence](evidence/README.md): original notebook text, selected source files, credited excerpts, and field-redacted database samples.
-- [Source inventory](evidence/source-manifest.json): original and published hashes, redaction locations, and excerpt line ranges.
+## Folder layout
 
-The web security page is an evidence summary pending reconstruction of the method. The remaining pages contain completed initial write-ups based on the available notes and source. Attached evidence includes notes, selected source, and fully field-redacted database excerpts. No raw database values, account credentials, authentication strings, captured logs, executables, or operational account-checking tools are included.
+```text
+work-name/
+    README.md          Introduction and explanation
+    originals/         Complete original files, unchanged
+    annotations.md     Later commentary, where useful
+```
+
+Original filenames, directory structure, encodings, resources, binaries, and existing credits are preserved inside each `originals/` folder. The introductions and annotations were prepared in 2026; approximate historical dates are kept approximate. The original `digital-archive-2000s` repository remains untouched.
+
+This repository is private because the complete originals include personal and account-related material.
+
+[Timeline](TIMELINE.md) · [Credits](CREDITS.md)

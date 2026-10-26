@@ -1,0 +1,25 @@
+1|abauer|2c706e5d66cc3e88b5974bef781649a7|5|armin.bauer@desscon.com|Armin Bauer|106738881|blubb?|a3dcb4d229de6fde0db5686dee47145d|0|1100013892|0|<span style="color:#BB0000;">The </span><span style="color:#0000BB;">Webmaster</span>       |1:0:22:1099583847:Hi...##NEWLINE####NEWLINE##What about support for the Siemens M65?##NEWLINE##Is there anything done yet?##NEWLINE####NEWLINE##I'm owner of one, and I search for a way to manage all my addresses and phone numbers and synchronize it with my mobile phone##NEWLINE####NEWLINE##mfg##NEWLINE##OR
+2|test|7815696ecbf1c96e6894b779456d330e|2|azrael@desscon.com|asd asd|1098724278|asd|7815696ecbf1c96e6894b779456d330e|0|1098724332|0|
+3|anderlin|16dc38f5ca972b477b7d3fc3b6f68743|2|anderlin@stud.ntnu.no|Anders Båtstrand|1098733287|gammelt_passord|ee74c7e3f724007d59b640bf82ae0f82|0|1099826738|0|
+4|naapuri|1c581d87fa21691341bee4153bb3b4da|3|tuomas.salo@iki.fi|Tuomas Salo|1098734922|Kotikoneen nimi?|74d632965d7106e2a32471f78600460a|1|1099345164|0|-tuomas
+5|peden|f5d1278e8109edd94e1e4197e04873b9|2|paul@benchline.org|Paul Eden|1098745510|Mom\\\'s maiden name?|e12f4611438cbf933b51215f08ee33d0|1|1098745661|0|
+6|nicholai|570a5fc8678ddd246b75e367218ea1cf|2|ngh@er.dtu.dk|nic|1098765460|efternavn|726ee131c7efc6414a505bac8233806f|1|1099949107|0|
+7|jarmo2|f0d05183b73a22c4479f868a9032cdee|2|jarmo.rosenqvist@arwidson.fi|jarmo|1098779484|Lätkäjengi?|bb4dd835c76bf981d6942ed5432e219c|1|1098779406|0|
+8|cycloon|a592c25777150ad0b2366ba6a82e3e73|2|cg@cycloon.org|cycloon|1098782334|foo|37b51d194a7513e45b56f6524f2d51f2|1|1098782420|0|
+9|simymega|ed6658e6f22583ed66fb5e5e735b9e63|2|simymega@hotmail.com|simymega|1098783460|cane|e7e9ec3723447a642f762b2b6a15cfd7|1|1098783423|0|simy
+10|phil_trick|50eccc6e2b0d307d5e8a40fb296f6171|2|phil-ml@techworks.ie|Phil|1098788945|nooble|ece3f20880d256fbc5869c6113a2bd43|1|1099043073|0|
+11|ac|241fe8af1e038118cd817048a65f803e|2|mm@yahoo.com|mehul|1098790879|nice|755f85c2723bb39381c7379a604160d8|0|1098790909|0|
+12|marioais|a99a854e6c8d75189d52e8e5fb2cb3f5|2|liste@humpen.at|Mario Aistleitner|1098870484|Brother|7ff135854376850e9711bd75ce942e07|1|1098870757|0|
+13|lincoln|d22f8c84026bb1ab12351e519c32dcd3|4|lincoln@lysator.liu.se|Bo Lincoln|1098962491|Duh?|d22f8c84026bb1ab12351e519c32dcd3|0|1098965765|0|
+14|siddharthasaha|503ade80e70123da2a85077d2dea5e7b|2|ssaha@ucsd.edu|Siddhartha|1099018430|?|d1457b72c3fb323a2671125aef3eab5d|1|1099073261|0|
+15|esteban|7bc8fa1030f858ee1d5a74f522b57be4|2|esteban@eztogether.com|x2ho|1099018726|what is my fav hobby|34d1f91fb2e514b8576fab1a75a89a6b|0|1099019220|0|
+16|wickert|af4b8f2a1c6a6549234cc6b0a06f2674|2|christoph.wickert@web.de|Christoph Wickert|1099154478|What\\\'s the nickname of your mother?|ed14f4a4d7ecddb6dae8e54900300b1e|1|1099154641|0|
+17|daKirsch|8773987eba1298643bddad3b0a0602e2|2|danielkirsch@gmx.de|Daniel Kirsch|1099218505|The Clan?|bd1b2d78ae5dd284aa2ee7afe2cccf06|0|1099219186|0|
+18|vmunix|50f2ecfe4c02f5205d13c945cc6fac71|2|boardernut@gmail.com|VMUNIX|1099261723|pg|f1290186a5d0b1ceab27f4e77c0c5d68|0|1099267273|0|I need sugar.
+19|pollicino|63148c0c6557dc44a0492453e740a1e6|2|giacomo_inches@hotmail.com|james|1099267434|amore?|fadf17141f3f9c3389d10d09db99f757|0|1099869284|0|james
+20|freisei|f0fe4be9291fa5b3a6616089a4c0a6a7|2|forum@xp8.de|Freisei|1099300206|there is no secret question|def12fed57b0a9344bcb4fe3315f77a4|0|1099301856|0|
+21|Mag1c|bc0f52bedb3f445928237db400fda65b|2|Mag1c@gmx.de|Mag1c|1099501927|Geburtsname der Mutter ?|91e5fb6c64e78f63836ea4862c1497e8|1|1099502154|0|
+22|[Lx]-=Mystify=-|d547a6c6547f4f9bba77a2b599d0f968|2|chewbacka@gmx.net|[Lx]-=Mystify=-|1099583589|My heart?|796e1b7b3f01cf10b17370c310af5e67|1|1099583944|0|
+23|ungoliant|adedb0be27c6c348db7f5138cd3f3794|2|ungoliant@gmail.com|Ungoliant|1099613667|plato favorito de Miau|4c7d4e2af302209818aa0998f8fa6413|1|1099614738|0|
+24|nachordez|ae57230d46023a51100cb1e4c52b10d6|2|nachordez@ya.com|nacho|1099649065|de dond es JR|da4e3775bd2de6c37fadd9b0188f7a4e|1|1099923370|0|nacho
+25|sog_yang|ad78854f93818160117dd9c8a92d89ef|2|sog.yang@msa.hinet.net|SoG Yang|1099924011|last name|57cb5a26334a6c1d5e27c49def4a0f0d|1|1099924043|0|SoG

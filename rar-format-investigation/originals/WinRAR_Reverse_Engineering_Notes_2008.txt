@@ -1,0 +1,652 @@
+
+-----Working on "win Rar "---------
+
+Pour cree des fichiers de meme taille :
+C:\DOCUM~1\wolf\LOCALS~1\temp
+
+fsutil file createnew c:\ba1.txt 1
+
+fsutil file createnew c:\ba2.txt 2
+
+fsutil file createnew c:\ba3.txt 3
+
+fsutil file createnew c:\ba4.txt 4
+fsutil file createnew c:\ba5.txt 5
+fsutil file createnew c:\ba6.txt 6
+fsutil file createnew c:\ba7.txt 7
+
+581088 
+APPLICATION
+NOM ET3.exe
+crc32
+fsutil file createnew c:\ET3.exe 581088 
+dd if=/dev/zero of=fichier_à_créer bs=1k count=1000
+ECHO Ce texte dans un fichier > fichier.txt
+
+
+
+ANALYSE :
+
+={.@..            fermeture
+Rar!              ouverture
+
+
+ligne 3
+........*.88.3.. = pour les fichiers
+..........98.3.. = pour les fichier     ca depond de la taille OU des information du fichier
+
+
+
+
+Rar!.....s...... = pour dire ke le fichier est un rar
+
+......t .*...... - .........S88.0.. -  ...1.txt..dH..  = detaille sur le fichier
+
+.={.@.. = pour dire la fin du rar 
+
+
+
+......t$.2...... = pour les fichier avec le pass
+
+                                                   > pa tjrs 
+......t .*...... = pour les fichier sans pass
+
+
+
+sin on change le nom de fichier interne le mot de pass est tjr la
+---> il renom le fichier et le mot de pass reste tjr pressent
+
+---> meme contenue mem crc
+
+il prend vraiment le mot de pass
+
+le mot de pass est storer dans le ficher rar 
+
+
+
+
+-----> dans chaque fichier rar il cache
+le nom du fichier
+la date de creation de fichier ki est dans le rar
+le CRC32 du fichier
+le type de fichier 
+la taille du fichier 
+et le contenu du fichier
+
+
+dans un rar without pass 
+si en considere un fichier txt dans un rar le contenu de ficher texte sera afficher apres 00000039      F0 6A  ðj  si en elneve la fonction du temps elle disparait                                                    
+
+
+------> lheure est integrer dans le fichier rar
+
+
+
+
+si le rar est sans pass il ne cree pas lheur
+
+
+
+-----------> La Premier ligne du hex declare ke le fichier est un rar 
+exemple : Rar!.....s......
+-----------> la Deuxieme ligne du hex declare le type de fichier avec pass ,sans pass 
+exemple : ......t .*...... sans pass , ......t$.2...... avec pass et le type de ficher
+-----------> la Troisiemme ligne du hex dun ficher c la crc32 afficher (une indication du fichier pour le SE)
+
+exemple  : ......V.R.?8.0.. =  BB56d118
+
+
+
+
+
+
+--------> la deuxieme partie ......t .*...... c'est celle ki montre ke c un mot de pass ou non mais elle ne cache pa le mot de pass
+si en enleve tous l'ecriture et on sauvgard sa affiche le fichier  en utilisan nimporte kell mot de pass
+
+
+le mot de pass est cacher dans 3 ieme ou 4 ieme ligne ou + ..
+
+
+> si en prend tous ce ki ya apres fichier.txt d'un fichier rar avec pass 1 et en le remplace dans un rar avec pass = 2  et meme crc le pass du deuxieme fichier devien 1
+
+donc le mot de passe est sotorer apres fichier.txt et avant .={.@..
+
+
+
+
+-------> un fichier avec pass est plus gros ( taille) k'un fichier sans pass
+
+
+
+
+dans la troisiemme ligne si jeface des hex (en les met a 00) des la debut du ligne il me dit ke "l'entete du cfichier est corrempu"
+
+
+mais jefface de la fin de la ligne il me dit ke "le mot de pass est incorrecte"
+
+
+
+
+
+1.txt apres  +1+2+3+4+5+6+7+8  hex il me dit ke le fichier est interrompu
+
+
+1.txt apres  de 9   hex il me dit rien mais le pass est incorrect
+
+
+
+
+si on enleve de la dernier ligne just apres la c4 (c a dire enlever ca ".={.@.." ) l'application continue et marche bien
+
+
+
+
+
+
+si en enleve la premiere ligne lapplication ne demare pas
+
+
+.1z..... (la il me dit ke le fichier est interrompu) 
+..o:........j... (la il me dit ke le mot de pass est incorrect)
+
+
+la deuxieme et la troisiemme et la 4ieme ligne sont prise lune avec lautre c'est a dire ke si ligne1 =  "....q\t .*....." donc le rest sera
+
+> ".........(C8.0.. ...1.txt..Zb.1"
+
+ca varie avec le crc32 de la ligne 3
+
+
+Dans la deuxieme ligne:
+On suppoze ke ligne 2 = "....r.t .*....." 
+
+les hex avant le t .* ce sont des in formation du nom de fichier contenu  
+ici il sons  "r." = hex "72 E7"
+
+dans la ligne 2 dans le fichier  "....r.t .*......"
+le dernier hex c une indication sur le contenu du fichier 
+exemple
+
+un txt avec "123456"
+dans la 2ieme ligne dernier hex en remarque ke le hex = "06" 
+et 123456 = 6 chiffre 
+
+si en convert le hex en decimal en remarque le nombre de caractere dans le fichier.txt
+
+----> dans le fichier avec ou  sans pass
+
+
+
+le CRC depond du contenu du fichier
+
+n'importe kel mot de pass marche si il ya le meme crc 
+
+il crypte le mot de pass dans 16 hex (..o:........j...)
+
+
+si je change le crytpe du mot de passe (et le contenu )par un otre du meme crc lapplication pass avec le deuxieme pass car il verifie si le crypte de mot de pass est correct ou pas 
+
+
+le mot de pass est dans 16 hex et le contenue est dans 8 hex 
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------les hex du mot de pass
+Fichier 1 (1pass.rar)-------------------------
+d1/1c / bd / 73/ 24/99/18/31/69/2a/e9/e7/ac/c2/a8/88/
+dec hex oct 
+209 d1  321 
+28  1c  034 
+189 bd  275
+115 73  163
+36  24  044
+153 99  231
+24  18  030
+49  31  061
+105 69  151
+42  2a  052
+233 e9  351 
+231 e7  347
+172 ac  254 
+194 c2  302
+168 a8  250
+136 88  210 
+le fichier est de 4096 oct 
+tous des octet = 3076 oct
+tous des dec   = 2084
+donc il rest 1020 oct dans le rest des hex 
+
+Fichier 2 (f1.rar)-------------------------
+1b/0f/34/67/89/9c/00/21/f4/4f/3b/52/c5/23/8d/1f/
+dec hex oct 
+27  1b  033
+15  0f  017
+52  34  064
+103 67  147
+137 89  207 
+156 9c  234
+33  21  041 
+244 f4  364
+79  4f  117 
+59  3b  073
+82  52  122
+197 c5  305 
+35  23  043
+141 8d  215
+31  1f  037
+le fichier est de 4096 oct 
+tous des octet = 2017 oct
+tous des dec   = 1389
+donc il rest 2079 oct dans le rest des hex 
+
+les hex du 2 mot de pass ne sont pa egaux mais les fichier sont egaux
+rq = peut etre si on met un crypt dans le pass ki marche avec le crypte du contenu ca marche
+NA7KI VU LES hex
+
+--------------------------les hex du contenu du fichier 
+
+le mot de pass est dans 16 hex et le contenue est dans 8 hex 
+
+hex contenu fichier1 (1pass.rar) --------------
+
+a5/4b/27/01/32/a1/2b/0b
+dec hex oct 
+165 a5  245
+75  4b  113
+39  27  047
+1   01  001
+50  32  062
+161 a1  241
+43  2b  053
+11  0b  013
+le fichier est de 4096 oct 
+tous des octet = 775 oct
+tous des dec   = 545
+
+hex pass + hex contenu = 3851 octet
+des pass + des contenu  = 2629
+
+hex contenu fichier2 (f1.rar) --------------
+ac/ab/a5/1f/50/8d/1d/fd
+dec hex oct 
+172 ac  254
+171 ab  253
+165 a5  245
+31  1f  037
+80  50  120
+141 8d  215
+29  1d  035
+253 fd  375
+le fichier est de 4096 oct 
+tous des octet = 1534 oct
+tous des dec   = 1042
+
+
+hex pass + hex contenu = 3551 octet
+des pass + des contenu  = 2431
+
+
+
+
+
+247 + 131 = 378  
+                difference de 71 octet
+373+ 076 = 449
+ 
+
+la difeerence entre un rar pass et sans pass et de 23 oct
+
+
+
+
+-----------Premiere ligne
+52/61/72/21/1a/07/00/cf/90/73/00/00/0d/00/00/00
+dec hex oct 
+82  52  120
+97  61  141 
+114 72  162 
+33  21  041
+26  1a  032 
+7   7   007
+207 cf  317
+144 90  220
+115 73  163
+13  d   015
+
+le tous des octs = 1218 oct
+le tous des dec  =  838
+-----------Deuxieme ligne 
+
+le calcule est sans le caractere ki est avant ts *...
+74/24/84/2d/10/01
+dec hex oct 
+116 74  164
+36  24  044
+132 84  204
+45  2d  055
+16  10  20 
+1   1   01 
+le tous des octs = 488 oct
+le tous des dec = 346 oct
+-------------------------------Ligne 1 + Ligne 2 = 1706 oct------------------------------
+------------Troisieme ligne 
+02/b7/ef/dc/83/2c/ba/53/38/1d/33/05
+la ligne du crc
+dec hex oct 
+2   2   002
+183 b7  267 
+239 ef  357
+220 dc  334
+131 83  203
+44  2c  054
+186 ba  272
+83  53  123
+56  38  070
+29  1d  035
+51  33  063
+5   5   005
+
+le tous des octs = 1785 oct 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Le crc32 est cacher dans la  3 ieme il se kompose de 4 hex par exemple d1a2 0604 il est situer dans cette ligne 
+entre le hex numero 4 et le hex numero neuf (de gauche a droite) 
+---> pour lire le hex il faut lire de droite a gauche
+
+
+(de gauche a droite):
+ce ki est apres le crc32 c la methode (de compression)
+
+
+
+marquer les hex ki utilise
+
+
+
+---------------> les hex situer exactment apres les hex dur crc32 son des information sur le type  de compression = (Methode de compression)  
+exemple :
+8.1 : veut dire ke la compression est tres rapide 
+8.2 :  veut dire ke la compression est rapide   
+8.3 :  veut dire ke la compression est Normale
+8.4 :  veut dire ke la compression est bonne
+8.5 :  veut dire ke la compression est meilleure  
+
+dans la ligne 2 les hex avant le type pass ou non on une relation avec la date kar si on fait plusieurs fichier et enleve la fonction de la date
+ces hex son pareil mai si on la decoche pa les hex ne sont pa pareil
+
+la date et le temps de creation du fichier est stocker dans le rar
+
+
+ 
+Le temps  n'est pa storer dans la partie du fichier c 'est a adire appartir de la 4ieme ligne
+
+
+le temps  est storer just les 2 hex apres le crc32 de gauche a droite
+
+le hex juste apres la date varie avec les fichier chake fichier a un hex different
+
+la date est storer dans  un seul hex juste apres le temps exemple: S = 19/02/2008
+
+le dernier hex de la ligne 3 est le nombre de caractere consernant le nom du fchier contenu 
+exemple : le fichier s'appel 1.txt le hex sera 04
+
+la troisiemme ligne on a : (fichier date1.rar)
+
+
+b7ef dc83 -> .... = crc32 
+2cba -> ,. = Temps de derniere modification  du fichier
+53 -> S = Date de derniere modification du fichier
+38 1d30-> 8.0 = methode de compression (la c stockage)
+05 > . = c le decimale de nombre de caractere dans le nom et l'extension du fichier  (ici c'est .txt)
+
+
+
+si le hex de la date = 2F donc la date sera 15/1/2008
+si le hex de la date = 30 donc la date sera 16/1/2008
+si le hex de la date = 31 donc la date sera 17/1/2008
+
+si le hex de la date = 21 donc la date sera 1/1/2008
+le max hex kon peut metre est 39 et le min est 21
+
+
+le hex du 1/1/2008 = 21(hex) et le hex de 31/1/2008 = 3Ê(moi 30 jour) ou 3F(moi 31 jours) (hex) est celui de la fin
+
+la methode du calcule de la date :
+
+il prend un hex du 21 juskau 3F pour le premier moi et du 3F juskau 5E pour le deuxieme moi ....etc
+
+
+
+ 
+on le hex 2 hex de temps  2c ba
+la 2c c les seconde si seconde = 10 donc le premier hex sera 05 (hex) (05 decimale) si seconde = 20 donc le premier hex sera 0A (10 en decimale)
+------> dans le premier hex ca marche avec doublement de decimale 
+
+premier hex de droite a gauche
+dans les minute 01 minute ekivaut a 20 hex 32 decimale 02 min eqivaut a 40 hex 64 decimale
+
+
+
+si la minute = 10 hex =  40 01 = 64 decimal 1 decimal 
+si la minute = 20 hex =  80 02 = 128 decimal 2 decimal 
+
+
+ya5tassir les ecriture contenu du fichier si elle est suppereur a 20 (dans un txt)
+
+
+si on met pass = ²&é"'(-è_çà)=$^poiuytrezaqsdfghjklmù*!:;,nbvcxw<123456789*^]²&é"'(-è_çà)=$^poiuytrezaqsdfghjklmù*!:;,nbvcxw<123456789*^]²&é"'(-è_çà)=$^poiuytrezaqsdfghjklmù*!:;,nbvcxw<123456789*^]
+
+si on met seulement ²&é"'(-è_çà)=$^poiuytrezaqsdfghjklmù*!:;,nbvcxw<123456789*^]²&é"'(-è_çà)=$^poiuytrezaqsdfghjklmù*!:;,nbvcxw<123456789*^]²&é"'(- 
+du pass il louvre parfaittement
+
+---------> le winrar prend les 127 permier caractere correct seulement (pour tem ki peut prendre 363 caractere)
+
+
+dans le pass et le contenu ya 44 octet
+
+
+"""""""""""""""""""fich 1
+
+4d/80/1e/b8/fe/c2/e2/96/90/43/f5/c6/ef/21/96/b7/eb/a7/b0/7c/0c/80/45/41
+
+dec hex oct
+
+77  4d  115
+
+128 80  200
+
+30  1e  037
+
+184 b8  270 
+
+254 fe  376
+
+194 c2  302
+
+226 e2  342
+
+144 90  220
+
+
+
+150 96  226
+
+67  43  103
+
+245 f5  365
+
+198 c6  306
+
+239 ef  357
+
+33  21  41
+
+150 96 226
+
+183 b7 267
+
+235 eb 353
+
+167 a7 247
+
+176 b0 260
+
+124 7c 174
+
+12  c  014
+
+128 80 200 
+
+69 45 105
+
+65 41 101
+
+= 5207
+
++ 42 / d8 
+
+66 42 102
+216 d8 330
+
+      = 432
+
+
+== 5639
+
+
+
+"""""""""""""""""""fich 2
+21/79/f9/e4/ce/32/72/90/36/38/0d/33/0b/aa/fe/d6/9a/bb/9c/fd/3a/10/f2/5a/
+
+
+
+dec hex oct
+
+33   21  041
+121  79   171
+249  f9  371
+228  e4  344
+206  ce  316
+ 50  32  062
+114   72  162
+144  90  220
+
+54   36  066
+56   38  070
+13   d   015
+51   33  063
+11   b   013
+170  aa  252
+254  fe  376
+214  d6  326
+154  9a  232
+187  bb  273
+156  9c  234
+253  fd  375
+58   3a  072
+16   10  020 
+242  f2  362
+90   5a  132
+
+
+
+18  12  022
+191 bf  277
+
+=4568
+
+all = 4867 
+
+
+
+
+33121249228206501141445456135111170254214154187156253581624290
+
+-----------------------------------------------------------------------------------------------------------
+
+si je change seulement la partie de pass avec un otre il remarque aukun echec mai si j'essay d'ouvrir le 
+fichier il me dit ke le mot de pass nest pas correct
+
+le winrar verifie si le fichier contien 8 bit de contenu crypter et 16 bit de mot de pass crypter
+
+
+
+dans  le crypte du contenu du fichier :
+
+si le text = 12345678 c a dire le text ne depasse pa 8 caractere il utilise 8 bite pour le crypter
+------> si il depass les 8 caractere il le crypte dans 24 bit  
+
+
+
+il ya un truc dans les hex avant la declaration avec ou sans mot de pass
+
+car si en remaarque les ces hex de fichier avec passe et les hex du meme fichier sans pass on remarke ki ya un calcule c comparable
+
+
+
+
+
+si on considere un fichier "a.txt"
+-> on cree un rar pass 
+-> on cree un rar sans pass
+
+si on prend la 2ieme ligne du rar sans pass et je la remplasse sur la 2ieme ligne du rar pass
+et j'applike AVEC MEME 	crc et renome le fichier
+le rar corrige le fichier avec pass et le rend sans pass et applike la correct generation du crypt du la 2 et 3 ieme ligne du rar
+
+
+------>essayer de savoir si le lenght du pass existe dans le rar
+
+
+
+
+
+
+
+si on prend 2 fichier pass avec meme pass = 1 et jechange la deux ieme ligne entre eux ca marche et le pass est correct
+
+
+
+si il ya des zero (00) dans le pass on peut les changer sans rien endommage 
+et en obtien moin de bit 
+
+
+
+
+quand jai changer le crypt de pass par un otre dun otre fichier du meme crc et jai cracker avec  power arcihver crack 
+le pass est = ds
+
+
+il signifie chaque pass par 2 caracter exemple 12345678912345679 = cU , cU c'est just et 12345678912346789 c juste (vrai)
+
+
+
+
+
+-----------------------------------------------
+
+On considere un repertoir C:\Documents and Settings\wolf\Bureau\RAR\za\132\ze 
+on a 1.txt 
+
+1.rar  , pass = "1"
+2.rar  , pass = "2"
+
+si en prend les hex du crypte du mot de pass du fichier 1.rar et 
+en les met a la place de ceux du 2.rar
+et en sauvgarde le nouveau fichier sous 3.rar 
+en obtien un rar sans faute mai aucun 
+mot de pass ne marche
+
+si on essay F1 ca marche et le mot de pass est decrypté
+
+
+
+
+
+
+
+
+
