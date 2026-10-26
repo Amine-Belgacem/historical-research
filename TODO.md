@@ -19,4 +19,8 @@ Cleanup requested for this repository:
 - [ ] Investigate the author's recollection that this was a way to create configured Trojan server executables by embedding new FTP connection settings. Compare the appender with the configuration builder in the unfinished VB6 project, and distinguish the recollection from behavior established by static inspection.
 - [ ] Update the EXE appender introduction with the resulting historical explanation. Preserve the original files unchanged.
 
+## Web security research
+
+- [x] Present the work as independent SQL injection research from circa 2007–2008, list the website names recorded in the archive, and connect each to its original database file. SQL injection is the method confirmed by the author; exact hostnames, tools, payloads, and subtypes are not invented.
+
 Keep the separate `digital-archive-2000s` repository untouched.

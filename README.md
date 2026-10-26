@@ -10,7 +10,7 @@ My early projects and investigations into Windows applications, binary formats, 
 |---|---|---|
 | [RAR format investigation](rar-format-investigation/README.md) | 2008 | Comparing archives, inspecting bytes, and exploring file metadata and compression. |
 | [MSN network investigation](msn-network-investigation/README.md) | 2000s; original filename says 2006 | Connections, server roles, sign-in behavior, and protocol experiments. |
-| [Web security investigation](web-security-investigation/README.md) | Circa 2007–2008 | Investigation of web systems and the original retained database files. |
+| [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
 
 ## Applications and scripts
 
