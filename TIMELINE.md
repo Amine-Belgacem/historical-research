@@ -6,7 +6,7 @@
 | Circa 2007–2008 | [Web security investigation](web-security-investigation/README.md). |
 | 2008 | [RAR format investigation](rar-format-investigation/README.md), with dated examples and three notebooks labeled 2008. |
 | 2000s | VB6 applications, the configuration builder, RapidShare tools, and batch scripting. |
-| October 2026 | Organization of this collection and preparation of the introductions and diagrams. |
+| October 2026 | Organization of this collection and preparation of the introductions and summary tables. |
 
 Original files remain as they were archived. The collection was organized in 2026.
 

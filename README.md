@@ -29,10 +29,9 @@ A collection of software projects and research covering Windows applications, bi
 work-name/
     README.md          Introduction and explanation
     originals/         Original files, unchanged
-    assets/            Figures and related files, where used
 ```
 
-Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and diagrams were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
+Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and summary tables were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
 
 This repository is private because the complete originals include personal and account-related material.
 
