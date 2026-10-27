@@ -11,7 +11,7 @@ A collection of software projects and research covering Windows applications, bi
 | [RAR format investigation](rar-format-investigation/README.md) | 2008 | Manual hex analysis, visual archive maps, compression and timestamp findings, and original password-handling conclusions. |
 | [MSN network investigation](msn-network-investigation/README.md) | 2000s | Protocol research, failed-sign-in account-lockout discovery, and the resulting Hotmail Kira application, kept together. |
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
-| [RapidShare account brute-force research](https://github.com/Amine-Belgacem/rapidshare-account-research) | 2000s | One dedicated repository containing the research, account finder, and account cracker; successful account access. |
+| [RapidShare account brute-force research](rapidshare-account-research/README.md) | 2000s | Account enumeration and password guessing, with the research and both original applications together. |
 
 ## Applications and scripts
 

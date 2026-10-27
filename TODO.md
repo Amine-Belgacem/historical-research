@@ -30,6 +30,10 @@ Cleanup requested for this repository:
 - [x] Rename the study Executable Configuration Builder and update collection links.
 - [x] Verify the archived byte layout and original-file hashes; document the reader-position mismatch, overwritten byte, and FTP error-handling limits.
 
+## RapidShare research
+
+- [x] Bring the RapidShare research, account finder, and account cracker into one folder in this collection, preserving all original files and updating the index and timeline.
+
 ## Web security research
 
 - [x] Present the work as independent SQL injection research from circa 2007–2008, list the website names recorded in the archive, and connect each to its original database file.
