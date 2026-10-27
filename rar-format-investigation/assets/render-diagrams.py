@@ -32,33 +32,52 @@ def font(size, bold=False, mono=False):
 
 
 class Figure:
-    def __init__(self, width, height, title, description):
+    def __init__(self, width, height, title, description, compact_gaps=()):
         self.width, self.height = width, height
+        self.compact_gaps = compact_gaps
+        self.bounds = [width, height, 0, 0]
+        self.title, self.description = title, description
         self.image = Image.new("RGB", (width, height), BG)
         self.draw = ImageDraw.Draw(self.image)
-        self.svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title description">', f'<title id="title">{escape(title)}</title>', f'<desc id="description">{escape(description)}</desc>', f'<rect width="{width}" height="{height}" fill="{BG}"/>']
+        self.svg = []
+
+    def compact_y(self, y):
+        return y - sum(max(0, min(y, end) - start) for start, end in self.compact_gaps)
+
+    def include(self, left, top, right, bottom):
+        self.bounds = [min(self.bounds[0], left), min(self.bounds[1], top), max(self.bounds[2], right), max(self.bounds[3], bottom)]
 
     def rect(self, x, y, width, height, fill=SLATE, stroke=LINE, radius=0):
+        bottom = self.compact_y(y + height)
+        y = self.compact_y(y)
+        height = bottom - y
+        self.include(x - 1, y - 1, x + width + 1, bottom + 1)
         self.draw.rounded_rectangle((x, y, x + width, y + height), radius, fill, stroke, 1)
         self.svg.append(f'<rect x="{x}" y="{y}" width="{width}" height="{height}" rx="{radius}" fill="{fill}" stroke="{stroke}"/>')
 
     def text(self, x, baseline, value, size=24, fill=INK, bold=False, mono=False, anchor="start"):
+        baseline = self.compact_y(baseline)
         value = str(value)
         face = font(size, bold, mono)
         measured = self.draw.textlength(value, font=face)
         left = x if anchor == "start" else x - measured / 2 if anchor == "middle" else x - measured
         if left < 0 or left + measured > self.width:
             raise ValueError(f"Text exceeds figure bounds: {value}")
+        self.include(*self.draw.textbbox((left, baseline), value, font=face, anchor="ls"))
         self.draw.text((left, baseline), value, font=face, fill=fill, anchor="ls")
         family = "Consolas, 'DejaVu Sans Mono', monospace" if mono else "'Segoe UI', Arial, sans-serif"
         self.svg.append(f'<text x="{x}" y="{baseline}" font-family="{family}" font-size="{size}" font-weight="{700 if bold else 400}" fill="{fill}" text-anchor="{anchor}">{escape(value)}</text>')
 
     def line(self, x1, y1, x2, y2, fill=LINE, width=2):
+        y1, y2 = self.compact_y(y1), self.compact_y(y2)
+        self.include(min(x1, x2) - width, min(y1, y2) - width, max(x1, x2) + width, max(y1, y2) + width)
         self.draw.line((x1, y1, x2, y2), fill=fill, width=width)
         self.svg.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{fill}" stroke-width="{width}"/>')
 
     def arrow(self, x1, y, x2):
         self.line(x1, y, x2 - 8, y, MUTED, 3)
+        y = self.compact_y(y)
+        self.include(x2 - 10, y - 6, x2, y + 6)
         points = [(x2, y), (x2 - 10, y - 6), (x2 - 10, y + 6)]
         self.draw.polygon(points, fill=MUTED)
         self.svg.append(f'<polygon points="{x2},{y} {x2 - 10},{y - 6} {x2 - 10},{y + 6}" fill="{MUTED}"/>')
@@ -70,8 +89,16 @@ class Figure:
             self.text(left + cell / 2, y + 36, value, 27, mono=True, bold=True, anchor="middle")
 
     def save(self, name):
-        (HERE / f"{name}.svg").write_text("\n".join(self.svg + ["</svg>"]) + "\n", encoding="utf-8")
-        self.image.save(HERE / f"{name}.png", optimize=True)
+        # Fit both formats to the artwork so GitHub does not add a wide white frame.
+        import math
+        padding = 12
+        left, top, right, bottom = self.bounds
+        left, top = max(0, math.floor(left) - padding), max(0, math.floor(top) - padding)
+        right, bottom = min(self.width, math.ceil(right) + padding), min(self.height, math.ceil(bottom) + padding)
+        width, height = right - left, bottom - top
+        header = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="{left} {top} {width} {height}" role="img" aria-labelledby="title description">', f'<title id="title">{escape(self.title)}</title>', f'<desc id="description">{escape(self.description)}</desc>', f'<rect x="{left}" y="{top}" width="{width}" height="{height}" fill="{BG}"/>']
+        (HERE / f"{name}.svg").write_text("\n".join(header + self.svg + ["</svg>"]) + "\n", encoding="utf-8", newline="\n")
+        self.image.crop((left, top, right, bottom)).save(HERE / f"{name}.png", optimize=True)
 
 
 def read_note(name):
@@ -93,7 +120,7 @@ def validate_samples():
 
 
 def structure():
-    fig = Figure(1440, 1160, "RAR structure and research field map", "A RAR 3.x archive sequence, two rows mapping the fixed 32-byte file header, variable metadata, and fields investigated through hex analysis.")
+    fig = Figure(1440, 1160, "RAR structure and research field map", "A RAR 3.x archive sequence, two rows mapping the fixed 32-byte file header, variable metadata, and fields investigated through hex analysis.", compact_gaps=[(158, 174), (397, 423), (650, 674), (812, 832), (1022, 1035)])
     fig.text(80, 80, "RAR FILE STRUCTURE", 44, bold=True)
     fig.text(80, 125, "RAR 3.x format map  |  Hex investigation, 2008", 27, fill=MUTED)
     fig.line(80, 153, 1360, 153)
@@ -135,7 +162,7 @@ def structure():
 
 
 def comparisons():
-    fig = Figure(1440, 1320, "Hex comparisons from the 2008 RAR notebooks", "The RAR signature, CRC byte order, compression method bytes, and two 16-byte data regions transcribed from the original research notes.")
+    fig = Figure(1440, 1320, "Hex comparisons from the 2008 RAR notebooks", "The RAR signature, CRC byte order, compression method bytes, and two 16-byte data regions transcribed from the original research notes.", compact_gaps=[(160, 180), (320, 340), (360, 380), (560, 575), (600, 615), (790, 810), (833, 850), (1008, 1024), (1145, 1155), (1203, 1218), (1238, 1250)])
     fig.text(80, 80, "HEX ANALYSIS  /  2008", 44, bold=True)
     fig.text(80, 125, "Controlled samples  •  byte comparisons  •  manual editing", 27, fill=MUTED)
     fig.line(80, 153, 1360, 153)
