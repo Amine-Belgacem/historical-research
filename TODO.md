@@ -2,9 +2,9 @@
 
 Earlier tasks were completed on 26 October 2026. The EXE appender findings are documented in its [analysis](exe-appender/analysis.md).
 
-## Pending
+## Application naming
 
-- [ ] Correct the application name from “MSN Hotmail Kira” to **Hotmail Kira** throughout the collection overview, timeline, and investigation/application documentation.
+- [x] Use **Hotmail Kira** throughout the collection overview, timeline, and investigation/application documentation, and name its application folder `hotmail-kira/`.
 
 ## Completed cleanup
 
@@ -19,7 +19,7 @@ Cleanup requested for this repository:
 
 ## Project relationships
 
-- [x] Present MSN Hotmail Kira as the application resulting from the MSN network investigation. Update the overview and both work introductions to explain the progression from investigation to implementation.
+- [x] Present Hotmail Kira as the application resulting from the MSN network investigation. Update the overview and both work introductions to explain the progression from investigation to implementation.
 
 ## EXE appender analysis
 

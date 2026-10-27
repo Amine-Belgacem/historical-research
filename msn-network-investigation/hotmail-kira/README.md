@@ -1,4 +1,4 @@
-# MSN Hotmail Kira
+# Hotmail Kira
 
 **2000s · Visual Basic 6 · MSN protocol application**
 
@@ -6,7 +6,7 @@ A Visual Basic 6 application developed from the [MSN network investigation](../R
 
 ## Outcome
 
-The application implemented the account-lockout finding. Repeated failed sign-ins caused Hotmail to block account access, including access by the legitimate owner. Continued attempts while MSN Hotmail Kira was running maintained the lockout.
+The application implemented the account-lockout finding. Repeated failed sign-ins caused Hotmail to block account access, including access by the legitimate owner. Continued attempts while Hotmail Kira was running maintained the lockout.
 
 That is the historical meaning of the interface's “freeze” action. The research outcome was denial of account access through failed-sign-in lockout, and this application was the resulting implementation.
 
