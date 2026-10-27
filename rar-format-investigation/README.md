@@ -6,7 +6,7 @@ A byte-level investigation of RAR archive structure, metadata, compression, and 
 
 ## Structure and findings map
 
-![RAR structure map showing the archive sequence, fixed file-header offsets, and variable metadata](assets/rar-structure.png)
+<a href="assets/rar-structure.png"><img src="assets/rar-structure.png" alt="RAR structure map showing the archive sequence, fixed file-header offsets, and variable metadata" width="560"></a>
 
 [Open the structure map as SVG](assets/rar-structure.svg)
 
@@ -14,7 +14,7 @@ The map connects the investigated regions to the archive structure: signature, C
 
 ## Hex comparisons
 
-![Hex analysis showing the archive signature, CRC byte order, compression-method bytes, and two protected-sample data regions](assets/hex-comparisons.png)
+<a href="assets/hex-comparisons.png"><img src="assets/hex-comparisons.png" alt="Hex analysis showing the archive signature, CRC byte order, compression-method bytes, and two protected-sample data regions" width="560"></a>
 
 [Open the hex comparison as SVG](assets/hex-comparisons.svg)
 
