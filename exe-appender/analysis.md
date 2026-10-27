@@ -6,7 +6,7 @@
 
 The core mechanism configures a precompiled executable with FTP connection settings. A builder collects the values, attaches serialized configuration to a template, and produces a configured file. The corresponding template source reads that configuration and uses it for outbound FTP access.
 
-My recollection places this work in experimentation with how Trojan server executables were prepared with new FTP details. The preserved implementation supports that configuration-builder interpretation. Its relationship to the unfinished VB6 project helps explain the historical context.
+The focus is the configuration mechanism used in Trojan server builders. Its relationship to the unfinished VB6 project shows how the same approach was used with a server template.
 
 ## Builder and template
 
@@ -29,7 +29,7 @@ The [unfinished project's configuration handler](../keylogger-unfinished/origina
 
 That handler expects `Files/servedit.exe`, a template absent from the surviving snapshot. The same form includes a separate FTP connection test and remote-file browsing. This ties the builder to a larger interface concerned with configuring and accessing the FTP destination.
 
-The [nested server project](../keylogger-unfinished/originals/seveur/Projet1.vbp) also references external source folders whose names describe MSN password-stealing components. Those referenced source files are absent. This provides historical context consistent with my recollection; it does not supply a complete reconstruction of the missing server's behavior.
+The [nested server project](../keylogger-unfinished/originals/seveur/Projet1.vbp) also references external source folders whose names describe MSN password-stealing components. Those referenced source files are absent, leaving that part of the server implementation incomplete in this snapshot.
 
 The shared serialization and template pattern suggests reuse or development of a common approach across the projects. Their exact development order is not established by the surviving snapshot.
 
@@ -49,6 +49,6 @@ The shared initial region and small additional tail agree with the source's temp
 
 ## Historical interpretation
 
-The work is best introduced as a **server-configuration builder experiment using embedded FTP settings**. The source explains how the settings were carried into the generated executable, and the related unfinished project supplies the server-template context. My recollection supplies the intended Trojan-server setting for that experimentation. A complete functioning Trojan, missing server components, or successful upload is not reconstructed here.
+This is a **server-configuration builder experiment using embedded FTP settings**. The source shows how the settings were carried into the generated executable, and the related unfinished project contains the matching server-template pattern. The preserved files document the configuration mechanism; parts of the broader server implementation are missing.
 
 [Back to the work](README.md)

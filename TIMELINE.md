@@ -3,7 +3,7 @@
 | Period | Work |
 |---|---|
 | 2000s; filename labels 2006 | [MSN network investigation](msn-network-investigation/README.md), followed by its application in [MSN Hotmail Kira](msn-hotmail-kira/README.md). Exact dates are approximate. |
-| Circa 2007–2008 | [Web security investigation](web-security-investigation/README.md), dated from my recollection. |
+| Circa 2007–2008 | [Web security investigation](web-security-investigation/README.md). |
 | 2008 | [RAR format investigation](rar-format-investigation/README.md), with dated examples and three notebooks labeled 2008. |
 | 2000s; individual dates approximate | VB6 applications, the configuration builder, RapidShare tools, and batch scripting. |
 | October 2026 | Organization of this collection and preparation of the introductions, diagrams, and annotations. |

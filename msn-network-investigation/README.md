@@ -12,8 +12,6 @@ What I discovered at the time was an account-lockout behavior: repeated failed s
 
 In my observations, continuing the failed attempts maintained that denial of access. The account owner remained locked out for as long as MSN Hotmail Kira kept running and continuing the attempts. This was the practical finding that the application was built around.
 
-This describes the historical behavior I observed during the investigation, as recalled for this retrospective.
-
 ## Original file
 
 [MSN Messenger network research notebook](originals/MSN_Messenger_Network_Research_2006.txt)

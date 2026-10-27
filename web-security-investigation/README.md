@@ -13,7 +13,7 @@ Around 2007–2008, I independently investigated web applications using SQL inje
 
 ## Websites studied
 
-The names below follow the labels in the original archive. They are historical names rather than links to current websites; exact hostnames are left as recorded instead of reconstructed from the filenames.
+Website names below use the original archive labels.
 
 | Website / archived name | Method | Original result |
 |---|---|---|
@@ -24,9 +24,7 @@ The names below follow the labels in the original archive. They are historical n
 
 ## Method and outcome
 
-The research method was SQL injection, as recalled by me when preparing this retrospective. The archived outputs are kept alongside the write-up in their original form. The approximate dates also come from my recollection.
-
-The specific injection techniques, tools, and sequence of each investigation can be described as those details are reconstructed. No particular payload, tool, or injection subtype is assigned here.
+I used SQL injection to obtain the database results preserved in this folder. The original files are kept alongside this write-up, unchanged.
 
 ## Original files
 

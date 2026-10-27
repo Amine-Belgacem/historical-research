@@ -13,16 +13,16 @@ Cleanup requested for this repository:
 
 ## Project relationships
 
-- [x] Present MSN Hotmail Kira as the application resulting from the MSN network investigation, as confirmed by the author. Update the overview and both work introductions to explain the progression from investigation to implementation.
+- [x] Present MSN Hotmail Kira as the application resulting from the MSN network investigation. Update the overview and both work introductions to explain the progression from investigation to implementation.
 
 ## EXE appender analysis
 
 - [x] Examine the original builder, executable template, and FTP-related source more closely to understand their intended role and configuration flow.
-- [x] Investigate the author's recollection that this was a way to create configured Trojan server executables by embedding new FTP connection settings. Compare the appender with the configuration builder in the unfinished VB6 project, and distinguish the recollection from behavior established by static inspection.
+- [x] Analyse the EXE appender's role in configuring Trojan server executables with FTP settings. Compare it with the builder in the unfinished VB6 project and document the configuration flow and missing components.
 - [x] Update the EXE appender introduction with the resulting historical explanation. Preserve the original files unchanged.
 
 ## Web security research
 
-- [x] Present the work as independent SQL injection research from circa 2007–2008, list the website names recorded in the archive, and connect each to its original database file. SQL injection is the method confirmed by the author; exact hostnames, tools, payloads, and subtypes are not invented.
+- [x] Present the work as independent SQL injection research from circa 2007–2008, list the website names recorded in the archive, and connect each to its original database file.
 
 Keep the separate `digital-archive-2000s` repository untouched.
