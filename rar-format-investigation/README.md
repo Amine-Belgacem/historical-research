@@ -1,4 +1,4 @@
-# RAR hex analysis
+# RAR Format Investigation
 
 **2008 · Binary format research**
 
