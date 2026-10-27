@@ -17,7 +17,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Focus |
 |---|---|
-| [EXE appender](exe-appender/README.md) | A server-configuration builder experiment with embedded FTP settings and a matching executable template. |
+| [Executable Configuration Builder](executable-configuration-builder/README.md) | How FTP settings were embedded into an executable template, with a verified byte layout and source-level failure analysis. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 

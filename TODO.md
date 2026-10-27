@@ -1,6 +1,6 @@
 # To-do
 
-Earlier tasks were completed on 26 October 2026. The EXE appender findings are documented in its [analysis](exe-appender/analysis.md).
+Earlier tasks were completed on 26 October 2026. The Executable Configuration Builder findings are documented in its [analysis](executable-configuration-builder/analysis.md).
 
 ## Application naming
 
@@ -21,11 +21,14 @@ Cleanup requested for this repository:
 
 - [x] Present Hotmail Kira as the application resulting from the MSN network investigation. Update the overview and both work introductions to explain the progression from investigation to implementation.
 
-## EXE appender analysis
+## Executable Configuration Builder analysis
 
 - [x] Examine the original builder, executable template, and FTP-related source more closely to understand their intended role and configuration flow.
-- [x] Analyse the EXE appender's role in configuring Trojan server executables with FTP settings. Compare it with the builder in the unfinished VB6 project and document the configuration flow and missing components.
-- [x] Update the EXE appender introduction with the resulting historical explanation. Preserve the original files unchanged.
+- [x] Analyse the Executable Configuration Builder's role in configuring Trojan server executables with FTP settings. Compare it with the builder in the unfinished VB6 project and document the configuration flow and missing components.
+- [x] Update the Executable Configuration Builder introduction with the resulting historical explanation. Preserve the original files unchanged.
+
+- [x] Rename the study Executable Configuration Builder and update collection links.
+- [x] Verify the archived byte layout and original-file hashes; document the reader-position mismatch, overwritten byte, and FTP error-handling limits.
 
 ## Web security research
 

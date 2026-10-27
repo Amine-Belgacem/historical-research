@@ -11,6 +11,6 @@
 
 Original files remain as they were archived. The collection was organized in 2026.
 
-The MSN work follows a research-to-implementation progression: the network investigation led to Hotmail Kira. The EXE appender and unfinished VB6 tool share a configuration-builder pattern, discussed in the [appender analysis](exe-appender/analysis.md).
+The MSN work follows a research-to-implementation progression: the network investigation led to Hotmail Kira. The Executable Configuration Builder and unfinished VB6 tool share a configuration-builder pattern, discussed in the [configuration analysis](executable-configuration-builder/analysis.md).
 
 [Back to the collection](README.md)
