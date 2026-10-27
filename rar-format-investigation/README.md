@@ -2,23 +2,23 @@
 
 **2008 · Binary format research**
 
-I explored how a RAR archive changed when I varied its input, compression options, timestamps, filenames, and password settings. These notebooks record the experiments, byte comparisons, and ideas as they developed.
+A byte-level investigation of RAR archive structure, metadata, compression, and password handling. Controlled comparisons of file contents and archive settings produced field mappings and conclusions documented in three research notebooks.
 
 ## Findings and conclusions from 2008
 
-The following summarizes my findings and conclusions in the 2008 notebooks. [Later technical notes](annotations.md) are kept separately.
+The table summarizes the findings and conclusions documented in the 2008 notebooks. [Later technical notes](annotations.md) are kept separately.
 
-| Area | Conclusion in my 2008 notes |
+| Area | Conclusion in the 2008 notebooks |
 |---|---|
-| Archive structure | I identified a recognizable opening signature and associated regions with the filename, file size, timestamps, CRC, and compression method. |
-| CRC and contents | I observed the same CRC for the same contents and worked out how the displayed CRC bytes related to the value shown by the application. |
-| Compression | I mapped changes in the archive bytes to storage and the different compression settings. |
-| Timestamps | I associated changing bytes with the stored date and time, including the two-second relationship for seconds. |
-| Protected archive size | I measured a 23-byte size difference between protected and unprotected samples in one comparison. |
-| Password representation | I concluded that the password occupied a region described as “16 hex,” with another “8 hex” region representing content. |
-| Replacing archive regions | I concluded that replacing regions between samples with matching contents or CRCs changed which password was accepted. The notebooks also record failed replacements and incorrect-password errors. |
-| Header changes and repair | I concluded that header changes and repair removed password protection in an edited sample, and that some modifications allowed different passwords to be accepted. |
-| Password length | I recorded that only the first 127 characters of a long test password affected the result in the version I tested. |
+| Archive structure | The opening signature and metadata regions were mapped to the filename, file size, timestamps, CRC, and compression method. |
+| CRC and contents | Identical contents produced identical CRC values. The byte ordering was related to the CRC displayed by the application. |
+| Compression | Changes in the method bytes were mapped to storage and the different compression settings. |
+| Timestamps | Date and time regions were identified, including the two-second relationship for seconds. |
+| Protected archive size | One comparison measured a 23-byte size difference between protected and unprotected samples. |
+| Password representation | The early format model assigned a “16 hex” region to the password and an “8 hex” region to content. |
+| Replacing archive regions | Region replacements between samples with matching contents or CRCs were recorded as changing the accepted password. The notebooks also document failed replacements and incorrect-password errors. |
+| Header changes and repair | Header changes and repair were recorded as removing protection from an edited sample, with some modifications accepting different passwords. |
+| Password length | The recorded result was that only the first 127 characters of a long test password affected the outcome in the tested version. |
 
 The [final notebook entry](originals/WinRAR_Reverse_Engineering_Notes_2008.txt#L631) records “F1” working after a failed replacement. The original wording remains unchanged.
 

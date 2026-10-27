@@ -2,7 +2,7 @@
 
 **2000s · Visual Basic 6**
 
-An early request-automation application that iterates over supplied account and password lists and displays response-based status updates.
+A Visual Basic 6 request-automation tool that processes supplied account and password lists and displays response-based status updates.
 
 ## Original project
 

@@ -2,7 +2,7 @@
 
 **Circa 2007–2008 · Independent web security research**
 
-Around 2007–2008, I independently investigated web applications using SQL injection and obtained database contents through weaknesses in application input handling. The original database files kept with this project are results of that research.
+Independent SQL injection research across multiple web applications, conducted around 2007–2008. The investigations examined database exposure through weaknesses in application input handling and produced the database results preserved with this project.
 
 ## Research focus
 
@@ -24,7 +24,7 @@ Website names below use the original archive labels.
 
 ## Method and outcome
 
-I used SQL injection to obtain the database results preserved in this folder. The original files are kept alongside this write-up, unchanged.
+SQL injection was the method used to obtain the archived database contents. The resulting files remain alongside this write-up in their original form.
 
 ## Original files
 

@@ -2,7 +2,7 @@
 
 **2000s · Visual Basic 6**
 
-A server-configuration builder experiment with two parts: a builder that embeds FTP connection settings into a precompiled executable, and a template that reads those settings and uses them for an outbound FTP operation.
+A Visual Basic 6 builder that embeds FTP connection settings into a precompiled executable. The generated program reads its embedded configuration and uses it for outbound FTP access.
 
 The focus is the mechanism used to configure Trojan server executables with new FTP settings. The unfinished VB6 project contains a closely related server-template builder. The [detailed analysis](analysis.md) explains the source, the relationship between the projects, and a read-only comparison of the archived binaries.
 

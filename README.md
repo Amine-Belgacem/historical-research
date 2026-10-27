@@ -2,7 +2,7 @@
 
 **Amine Belgacem · Personal work from the 2000s**
 
-My early projects and investigations into Windows applications, binary formats, network protocols, and web security. Each work has its own folder, with an introduction and its original files together.
+A collection of software projects and research covering Windows applications, binary formats, network protocols, and web security. Each project brings its technical description, outcomes, and original files together in one folder.
 
 ## Research
 

@@ -2,11 +2,11 @@
 
 **2000s · Visual Basic 6 · MSN protocol application**
 
-The application resulting from my [MSN network investigation](../msn-network-investigation/README.md). I used that research to build an MSN socket conversation and an asynchronous HTTP sign-in flow. Its original interface describes freeze and defreeze actions.
+A Visual Basic 6 application developed from the [MSN network investigation](../msn-network-investigation/README.md). It combines MSN socket communication with an asynchronous HTTP sign-in flow and an interface built around freeze and defreeze actions.
 
-## Intended outcome
+## Outcome
 
-The application put my account-lockout finding into practice. Repeated failed sign-ins caused Hotmail to block access, including access by the legitimate email-account owner. Keeping MSN Hotmail Kira running and continuing those attempts kept the owner unable to sign in to their email.
+The application implemented the account-lockout finding. Repeated failed sign-ins caused Hotmail to block account access, including access by the legitimate owner. Continued attempts while MSN Hotmail Kira was running maintained the lockout.
 
 That is the historical meaning of the interface's “freeze” action. The research outcome was denial of account access through failed-sign-in lockout, and this application was the resulting implementation.
 

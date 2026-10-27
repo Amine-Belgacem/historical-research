@@ -2,7 +2,7 @@
 
 **2000s · Visual Basic 6**
 
-A small account-checking application that loads identifiers into a list, sends requests, and updates the displayed status from the responses.
+A Visual Basic 6 utility for loading account identifiers, submitting requests, and displaying account status based on the responses.
 
 ## Original project
 

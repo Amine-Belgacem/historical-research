@@ -2,7 +2,7 @@
 
 **2000s · Windows batch scripting**
 
-A historical script with menus, length settings, character-class filters, and generated text output.
+A Windows batch utility for generating passwords with configurable length and character classes. Menu-driven settings control the generation process, with results written to a text file.
 
 ## Original file
 

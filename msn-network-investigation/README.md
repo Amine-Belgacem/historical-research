@@ -2,13 +2,13 @@
 
 **2000s · Network and protocol research**
 
-I investigated the connections used by an MSN client: which destinations it contacted, when connections opened and closed, how sign-in interacted with the messaging conversation, and what changed when connectivity changed.
+An investigation of MSN client connections and authentication, covering server roles, connection lifecycles, and the relationship between sign-in and messaging. The central finding was a Hotmail account-lockout behavior triggered by repeated failed sign-ins.
 
-This investigation led to [MSN Hotmail Kira](../msn-hotmail-kira/README.md), the application in which I put the network and sign-in work into practice.
+The research led to [MSN Hotmail Kira](../msn-hotmail-kira/README.md), an application built around that finding.
 
 ## Discovery and outcome
 
-I discovered that repeated failed sign-in attempts triggered a Hotmail account lockout. The legitimate owner of the email address was then unable to sign in to their email.
+Repeated failed sign-in attempts triggered a Hotmail account lockout, preventing the legitimate account owner from accessing their email.
 
 Continuing the failed attempts maintained that denial of access. The account owner remained locked out for as long as MSN Hotmail Kira kept running and continuing the attempts. This was the finding that the application was built around.
 
@@ -18,7 +18,7 @@ Continuing the failed attempts maintained that denial of access. The account own
 
 The complete, unredacted working notebook is kept here in its original bytes.
 
-## Topics explored
+## Research scope
 
 - Connection states and the lifetime of individual connections.
 - Different server roles during sign-in and messaging.
