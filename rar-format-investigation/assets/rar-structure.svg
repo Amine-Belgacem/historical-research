@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1160" viewBox="0 0 1440 1160" role="img" aria-labelledby="title description">
+<title id="title">RAR structure and research field map</title>
+<desc id="description">A RAR 3.x archive sequence, two rows mapping the fixed 32-byte file header, variable metadata, and fields investigated through hex analysis.</desc>
+<rect width="1440" height="1160" fill="#ffffff"/>
+<text x="80" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#17243a" text-anchor="start">RAR FILE STRUCTURE</text>
+<text x="80" y="125" font-family="'Segoe UI', Arial, sans-serif" font-size="27" font-weight="400" fill="#526278" text-anchor="start">RAR 3.x format map  |  Hex investigation, 2008</text>
+<line x1="80" y1="153" x2="1360" y2="153" stroke="#d4dce7" stroke-width="2"/>
+<text x="80" y="203" font-family="'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#17243a" text-anchor="start">01  ARCHIVE SEQUENCE</text>
+<rect x="80" y="235" width="195" height="105" rx="0" fill="#dbeafe" stroke="#d4dce7"/>
+<text x="177.5" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Signature</text>
+<text x="177.5" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#526278" text-anchor="middle">7 bytes</text>
+<line x1="280" y1="287" x2="294" y2="287" stroke="#526278" stroke-width="3"/>
+<polygon points="302,287 292,281 292,293" fill="#526278"/>
+<rect x="307" y="235" width="215" height="105" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="414.5" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Archive header</text>
+<text x="414.5" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#526278" text-anchor="middle">13+ bytes</text>
+<line x1="527" y1="287" x2="541" y2="287" stroke="#526278" stroke-width="3"/>
+<polygon points="549,287 539,281 539,293" fill="#526278"/>
+<rect x="554" y="235" width="255" height="105" rx="0" fill="#ccf0e8" stroke="#d4dce7"/>
+<text x="681.5" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">File header</text>
+<text x="681.5" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#526278" text-anchor="middle">32+ bytes</text>
+<line x1="814" y1="287" x2="828" y2="287" stroke="#526278" stroke-width="3"/>
+<polygon points="836,287 826,281 826,293" fill="#526278"/>
+<rect x="841" y="235" width="260" height="105" rx="0" fill="#e9e2fb" stroke="#d4dce7"/>
+<text x="971.0" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Packed file data</text>
+<text x="971.0" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#526278" text-anchor="middle">Variable length</text>
+<line x1="1106" y1="287" x2="1120" y2="287" stroke="#526278" stroke-width="3"/>
+<polygon points="1128,287 1118,281 1118,293" fill="#526278"/>
+<rect x="1133" y="235" width="227" height="105" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="1246.5" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Next block</text>
+<text x="1246.5" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="23" font-weight="400" fill="#526278" text-anchor="middle">Files / end</text>
+<text x="80" y="385" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="28" font-weight="700" fill="#17243a" text-anchor="start">52 61 72 21 1A 07 00</text>
+<text x="640" y="385" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="400" fill="#526278" text-anchor="start">The marker recorded in the research notebook</text>
+<text x="80" y="460" font-family="'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#17243a" text-anchor="start">02  FIXED FILE HEADER</text>
+<text x="80" y="498" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="400" fill="#526278" text-anchor="start">Offsets are relative to the file header; the fixed part occupies 32 bytes.</text>
+<text x="216.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+00–01</text>
+<rect x="144" y="550" width="144" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="216.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#17243a" text-anchor="middle">Header CRC</text>
+<text x="216.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">2 B</text>
+<text x="324.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+02</text>
+<rect x="288" y="550" width="72" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="324.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#17243a" text-anchor="middle">Type</text>
+<text x="324.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">1 B</text>
+<text x="432.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+03–04</text>
+<rect x="360" y="550" width="144" height="92" rx="0" fill="#ffead0" stroke="#d4dce7"/>
+<text x="432.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#17243a" text-anchor="middle">Flags</text>
+<text x="432.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">2 B</text>
+<text x="576.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+05–06</text>
+<rect x="504" y="550" width="144" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="576.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#17243a" text-anchor="middle">Header size</text>
+<text x="576.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">2 B</text>
+<text x="792.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+07–0A</text>
+<rect x="648" y="550" width="288" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="792.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#17243a" text-anchor="middle">Packed size</text>
+<text x="792.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">4 B</text>
+<text x="1080.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+0B–0E</text>
+<rect x="936" y="550" width="288" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="1080.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#17243a" text-anchor="middle">Unpacked size</text>
+<text x="1080.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">4 B</text>
+<text x="1260.0" y="535" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+0F</text>
+<rect x="1224" y="550" width="72" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="1260.0" y="588" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#17243a" text-anchor="middle">OS</text>
+<text x="1260.0" y="622" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">1 B</text>
+<text x="288.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+10–13</text>
+<rect x="144" y="715" width="288" height="92" rx="0" fill="#dbeafe" stroke="#d4dce7"/>
+<text x="288.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#17243a" text-anchor="middle">File CRC</text>
+<text x="288.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">4 B</text>
+<text x="576.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+14–17</text>
+<rect x="432" y="715" width="288" height="92" rx="0" fill="#dff1d8" stroke="#d4dce7"/>
+<text x="576.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#17243a" text-anchor="middle">DOS date / time</text>
+<text x="576.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">4 B</text>
+<text x="756.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+18</text>
+<rect x="720" y="715" width="72" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="756.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#17243a" text-anchor="middle">Ver.</text>
+<text x="756.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">1 B</text>
+<text x="828.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+19</text>
+<rect x="792" y="715" width="72" height="92" rx="0" fill="#ccf0e8" stroke="#d4dce7"/>
+<text x="828.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#17243a" text-anchor="middle">Method</text>
+<text x="828.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">1 B</text>
+<text x="936.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+1A–1B</text>
+<rect x="864" y="715" width="144" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="936.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#17243a" text-anchor="middle">Name size</text>
+<text x="936.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">2 B</text>
+<text x="1152.0" y="700" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">+1C–1F</text>
+<rect x="1008" y="715" width="288" height="92" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="1152.0" y="753" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#17243a" text-anchor="middle">Attributes</text>
+<text x="1152.0" y="787" font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="22" font-weight="400" fill="#526278" text-anchor="middle">4 B</text>
+<text x="80" y="875" font-family="'Segoe UI', Arial, sans-serif" font-size="27" font-weight="700" fill="#17243a" text-anchor="start">03  VARIABLE METADATA AND CONTENTS</text>
+<rect x="80" y="905" width="280" height="64" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="220.0" y="945" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Large-size fields</text>
+<line x1="365" y1="937" x2="375" y2="937" stroke="#526278" stroke-width="3"/>
+<polygon points="383,937 373,931 373,943" fill="#526278"/>
+<rect x="388" y="905" width="220" height="64" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="498.0" y="945" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Filename</text>
+<line x1="613" y1="937" x2="623" y2="937" stroke="#526278" stroke-width="3"/>
+<polygon points="631,937 621,931 621,943" fill="#526278"/>
+<rect x="636" y="905" width="320" height="64" rx="0" fill="#edf1f6" stroke="#d4dce7"/>
+<text x="796.0" y="945" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Salt / extended time</text>
+<line x1="961" y1="937" x2="971" y2="937" stroke="#526278" stroke-width="3"/>
+<polygon points="979,937 969,931 969,943" fill="#526278"/>
+<rect x="984" y="905" width="376" height="64" rx="0" fill="#e9e2fb" stroke="#d4dce7"/>
+<text x="1172.0" y="945" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="middle">Packed file data</text>
+<text x="80" y="1012" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="400" fill="#526278" text-anchor="start">Filename length and flags determine the optional fields. Shown with readable headers.</text>
+<line x1="80" y1="1045" x2="1360" y2="1045" stroke="#d4dce7" stroke-width="2"/>
+<text x="80" y="1090" font-family="'Segoe UI', Arial, sans-serif" font-size="25" font-weight="700" fill="#17243a" text-anchor="start">Research focus: CRC, timestamps, compression methods, and protected-file differences.</text>
+<text x="80" y="1130" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="400" fill="#526278" text-anchor="start">Format: RAR 3.30 technical information. Hex examples: original 2008 notebooks.</text>
+</svg>

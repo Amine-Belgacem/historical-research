@@ -8,7 +8,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Period | Focus |
 |---|---|---|
-| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Archive structure, compression and timestamp findings, and original password-handling conclusions. |
+| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Manual hex analysis, visual archive maps, compression and timestamp findings, and original password-handling conclusions. |
 | [MSN network investigation](msn-network-investigation/README.md) | 2000s | Failed-sign-in account-lockout discovery that led to MSN Hotmail Kira. |
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
 
@@ -29,10 +29,10 @@ A collection of software projects and research covering Windows applications, bi
 work-name/
     README.md          Introduction and explanation
     originals/         Original files, unchanged
-    annotations.md     Later commentary, where useful
+    assets/            Figures and related files, where used
 ```
 
-Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and annotations were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
+Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and diagrams were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
 
 This repository is private because the complete originals include personal and account-related material.
 
