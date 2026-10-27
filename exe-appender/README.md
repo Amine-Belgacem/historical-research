@@ -30,7 +30,7 @@ flowchart LR
 
 The builder stores the FTP host, username, and password as configuration. The template loads those values from its own executable file, connects to the configured FTP destination, and contains an upload of a fixed local image file. The compiled output is therefore intended to carry its own connection settings.
 
-The networking role visible here is an FTP client. “Server” describes the generated agent's role. The available template does not contain the full functionality of a Trojan or the code that creates the image it attempts to upload.
+The generated agent acts as an FTP client: it connects to the configured destination and uploads the local image. The [analysis](analysis.md) covers the project structure and its dependencies.
 
 The original project metadata names Softrix; those names and the existing comments are retained unchanged.
 

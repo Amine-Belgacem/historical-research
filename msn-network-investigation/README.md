@@ -8,15 +8,15 @@ This investigation led to [MSN Hotmail Kira](../msn-hotmail-kira/README.md), the
 
 ## Discovery and outcome
 
-What I discovered at the time was an account-lockout behavior: repeated failed sign-in attempts could cause Hotmail to block access to the account. The legitimate owner of the email address would then be unable to sign in to their email.
+I discovered that repeated failed sign-in attempts triggered a Hotmail account lockout. The legitimate owner of the email address was then unable to sign in to their email.
 
-In my observations, continuing the failed attempts maintained that denial of access. The account owner remained locked out for as long as MSN Hotmail Kira kept running and continuing the attempts. This was the practical finding that the application was built around.
+Continuing the failed attempts maintained that denial of access. The account owner remained locked out for as long as MSN Hotmail Kira kept running and continuing the attempts. This was the finding that the application was built around.
 
 ## Original file
 
 [MSN Messenger network research notebook](originals/MSN_Messenger_Network_Research_2006.txt)
 
-The complete, unredacted notebook is kept here in its original bytes. Its filename labels it 2006; the exact sequence and dates of the experiments are approximate.
+The complete, unredacted working notebook is kept here in its original bytes.
 
 ## Topics explored
 

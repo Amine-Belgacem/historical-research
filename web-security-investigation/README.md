@@ -2,7 +2,7 @@
 
 **Circa 2007–2008 · Independent web security research**
 
-Around 2007–2008, I independently investigated web applications using SQL injection. This work explored how weaknesses in the handling of application input could expose database contents. The original database files kept with this project are retained results of that research.
+Around 2007–2008, I independently investigated web applications using SQL injection and obtained database contents through weaknesses in application input handling. The original database files kept with this project are results of that research.
 
 ## Research focus
 

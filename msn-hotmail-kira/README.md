@@ -6,7 +6,7 @@ The application resulting from my [MSN network investigation](../msn-network-inv
 
 ## Intended outcome
 
-The application put my account-lockout finding into practice. Repeated failed sign-ins caused Hotmail to block access, including access by the legitimate email-account owner. In my observations at the time, keeping MSN Hotmail Kira running and continuing those attempts kept the owner unable to sign in to their email.
+The application put my account-lockout finding into practice. Repeated failed sign-ins caused Hotmail to block access, including access by the legitimate email-account owner. Keeping MSN Hotmail Kira running and continuing those attempts kept the owner unable to sign in to their email.
 
 That is the historical meaning of the interface's “freeze” action. The research outcome was denial of account access through failed-sign-in lockout, and this application was the resulting implementation.
 

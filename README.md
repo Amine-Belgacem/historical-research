@@ -9,7 +9,7 @@ My early projects and investigations into Windows applications, binary formats, 
 | Work | Period | Focus |
 |---|---|---|
 | [RAR format investigation](rar-format-investigation/README.md) | 2008 | Archive structure, compression and timestamp findings, and original password-handling conclusions. |
-| [MSN network investigation](msn-network-investigation/README.md) | 2000s; original filename says 2006 | Failed-sign-in account-lockout discovery that led to MSN Hotmail Kira. |
+| [MSN network investigation](msn-network-investigation/README.md) | 2000s | Failed-sign-in account-lockout discovery that led to MSN Hotmail Kira. |
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
 
 ## Applications and scripts
@@ -32,7 +32,7 @@ work-name/
     annotations.md     Later commentary, where useful
 ```
 
-Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and annotations were prepared in 2026; approximate historical dates are kept approximate. The original `digital-archive-2000s` repository remains untouched.
+Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and annotations were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
 
 This repository is private because the complete originals include personal and account-related material.
 
