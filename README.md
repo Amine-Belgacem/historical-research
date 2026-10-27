@@ -11,6 +11,7 @@ A collection of software projects and research covering Windows applications, bi
 | [RAR format investigation](rar-format-investigation/README.md) | 2008 | Manual hex analysis, visual archive maps, compression and timestamp findings, and original password-handling conclusions. |
 | [MSN network investigation](msn-network-investigation/README.md) | 2000s | Protocol research, failed-sign-in account-lockout discovery, and the resulting MSN Hotmail Kira application, kept together. |
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
+| [RapidShare account brute-force research](rapidshare-account-finder/README.md) | 2000s | Account enumeration and dictionary-based password guessing, implemented in a finder and a cracker; successful account access. |
 
 ## Applications and scripts
 
@@ -18,8 +19,6 @@ A collection of software projects and research covering Windows applications, bi
 |---|---|
 | [EXE appender](exe-appender/README.md) | A server-configuration builder experiment with embedded FTP settings and a matching executable template. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
-| [RapidShare account finder](rapidshare-account-finder/README.md) | List processing and response-based account checking. |
-| [RapidShare account brute-forcer](rapidshare-account-bruteforcer/README.md) | An early VB6 request-automation experiment. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 
 ## Folder layout
