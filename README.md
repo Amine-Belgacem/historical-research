@@ -17,7 +17,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Focus |
 |---|---|
-| [Executable Configuration Builder](executable-configuration-builder/README.md) | Two VB6 projects demonstrating embedded FTP settings: an EXE builder and a self-reading template. |
+| [Executable Configuration Builder](executable-configuration-builder/README.md) | How historical Trojan builders embedded FTP reporting settings into generated executables, demonstrated by two VB6 projects. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 
