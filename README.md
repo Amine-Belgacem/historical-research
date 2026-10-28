@@ -13,12 +13,12 @@ A collection of software projects and research covering Windows applications, bi
 | [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
 | [RapidShare account brute-force research](rapidshare-account-research/README.md) | 2000s | Account enumeration and password guessing, with the research and both original applications together. |
 
-## Applications and scripts
+## Applications and prototypes
 
 | Work | Focus |
 |---|---|
 | [Trojan Builder Configuration](trojan-builder-configuration/README.md) | How historical Trojan builders embedded FTP reporting settings into generated executables, demonstrated by two VB6 projects. |
-| [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
+| [Early VB6 Security Prototypes](vb6-security-prototypes/README.md) | Unfinished keylogger and MSN credential-stealer interfaces, their shared architecture, and known limitations. |
 
 ## Folder layout
 
@@ -32,7 +32,7 @@ Original filenames, directory structure, encodings, resources, binaries, and exi
 
 The MSN investigation also contains a `hotmail-kira/` subfolder for its resulting application, with the complete original project inside it.
 
-The Trojan Builder Configuration contains its two editable VB6 projects under `source/`, with a build script.
+The Trojan Builder Configuration contains its two editable VB6 projects under `source/`, with a build script. The Early VB6 Security Prototypes study groups two unfinished projects in separate source folders, with their application logic unchanged.
 
 This repository is private because the complete originals include personal and account-related material.
 

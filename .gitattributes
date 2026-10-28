@@ -9,3 +9,6 @@ trojan-builder-configuration/source/*.vbp text eol=crlf
 trojan-builder-configuration/source/*.vbg text eol=crlf
 trojan-builder-configuration/source/*.frm text eol=crlf
 trojan-builder-configuration/source/*.bas text eol=crlf
+# Preserve the historical prototype source and binary resources exactly.
+vb6-security-prototypes/** -text -whitespace
+vb6-security-prototypes/**/README.md text eol=lf
