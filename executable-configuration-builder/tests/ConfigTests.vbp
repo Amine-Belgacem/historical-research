@@ -1,0 +1,16 @@
+Type=Exe
+Form=..\source\frmBuilder.frm
+Form=..\source\frmViewer.frm
+Module=Configuration; ..\source\Configuration.bas
+Module=ConfigTests; ConfigTests.bas
+Startup="Sub Main"
+Title="Local configuration tests"
+ExeName32="ConfigTests.exe"
+Path32="..\build"
+Name="LocalConfigTests"
+MajorVer=1
+MinorVer=0
+RevisionVer=0
+CompilationType=0
+BoundsCheck=-1
+OverflowCheck=-1

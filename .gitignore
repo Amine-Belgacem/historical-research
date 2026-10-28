@@ -5,3 +5,9 @@
 /.DS_Store
 /Thumbs.db
 /Desktop.ini
+# Generated output from the offline VB6 configuration example.
+/executable-configuration-builder/build/
+/executable-configuration-builder/source/*.vbw
+/executable-configuration-builder/source/*.log
+/executable-configuration-builder/tests/*.vbw
+/executable-configuration-builder/tests/*.log

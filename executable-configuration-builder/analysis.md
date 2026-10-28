@@ -1,5 +1,7 @@
 # How the Executable Configuration Builder Worked
 
+The [editable offline example](README.md#working-example) demonstrates property-bag storage and restoration using local display settings. The analysis below concerns the archived executable-writing implementation in `originals/`; its defects and byte layout do not describe the new example.
+
 ## From settings to a configured program
 
 The project separates a **builder** from an **executable template**. The template contains the program logic; the builder supplies configuration. The button labelled “Compile” copies and configures an existing binary rather than compiling new program code.

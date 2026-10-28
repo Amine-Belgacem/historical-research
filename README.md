@@ -17,7 +17,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Focus |
 |---|---|
-| [Executable Configuration Builder](executable-configuration-builder/README.md) | How FTP settings were embedded into an executable template, with a verified byte layout and source-level failure analysis. |
+| [Executable Configuration Builder](executable-configuration-builder/README.md) | Historical executable configuration, with a measured byte layout and a working offline VB6 builder/viewer example. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 
@@ -32,6 +32,8 @@ work-name/
 Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and summary tables were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
 
 The MSN investigation also contains a `hotmail-kira/` subfolder for its resulting application, with the complete original project inside it.
+
+The Executable Configuration Builder includes editable example projects under `source/`, native tests, and a build script alongside its historical originals.
 
 This repository is private because the complete originals include personal and account-related material.
 

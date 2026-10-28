@@ -1,17 +1,40 @@
 # Executable Configuration Builder
 
-A Visual Basic 6 project demonstrating how connection settings were embedded into a precompiled program. The builder copies an executable template, stores FTP settings in the copy, and produces a program intended to load those settings at startup.
+A study of executable configuration, with an editable **offline VB6 example** demonstrating how settings are serialized, saved, and restored in a separate viewer.
 
-This explains the configuration stage used in historical Trojan builders: the program already existed, while its destination and account settings changed between generated copies. The template here is an outbound FTP client with a fixed image-upload operation.
+## Working example
 
-| Component | Role |
+| Project | Role |
 | --- | --- |
-| [Builder](originals/frmMain.frm) | Collects settings and writes them into a copy of the template. |
-| [Template source](originals/rdfce%20source/frmMain.frm) | Reads configuration from its own file and passes it to WinINet. |
-| [Saved template and output](originals/) | `rdfce.ext` and `test.exe` preserve the resulting file layout. |
+| [Builder](source/Builder.vbp) / [form](source/frmBuilder.frm) | Edit a title, message, theme, and timestamp option; save a `.cfg` file. |
+| [Viewer](source/Viewer.vbp) / [form](source/frmViewer.frm) | Load the file and display those settings, with a scrollable message preview. |
+| [Shared file handling](source/Configuration.bas) | Validate settings, serialize the property bag, and handle file errors. |
+| [Native tests](tests/ConfigTests.vbp) | Exercise the format, error cases, and form behavior. |
 
-**Verification:** the saved configuration layout is confirmed by byte comparison. The supplied source has a footer-reading error and a one-byte overwrite, so it cannot be presented as a fully working build. The binaries were inspected without execution. All original files remain unchanged.
+Open [Example.vbg](source/Example.vbg) in VB6, or build and test from PowerShell in this folder:
 
-[How it works, byte layout, and verification findings](analysis.md)
+```powershell
+.\build.ps1
+```
+
+The script uses an installed, licensed VB6 compiler; supply `-Compiler` if it is elsewhere. It produces `build/ConfigBuilder.exe` and `build/ConfigViewer.exe`. Save with the builder, then choose **View saved file**, or open the same `.cfg` in the standalone viewer.
+
+The example writes a data file rather than modifying an executable. It has no FTP operations or credential fields.
+
+## File format
+
+| Bytes, zero-based | Contents |
+| --- | --- |
+| 0–7 | ASCII signature `VBCFG001`. |
+| 8–11 | Four-byte payload length. |
+| 12 onward | Serialized VB6 `PropertyBag` containing the display settings. |
+
+Saving validates inputs and completes a temporary file before replacing the destination. Loading checks the signature, payload length, property types, and settings before updating the viewer. Both forms show errors in their status area.
+
+Compiled with VB6 and checked by the native self-tests, including round trips, Unicode, malformed files, failed replacements, and form behavior.
+
+## Historical implementation
+
+[Original files](originals/) and the [original executable layout and findings](analysis.md) explain the archived builder/template mechanism and its defects. The offline example uses a separate data-file format; it is not a repaired version of the original FTP uploader.
 
 [Back to the collection](../README.md)

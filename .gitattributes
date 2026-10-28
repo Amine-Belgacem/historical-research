@@ -4,3 +4,10 @@
 .gitattributes text eol=lf
 # Keep every original byte, including encoding, line endings, and whitespace.
 **/originals/** -text -whitespace
+# VB6 project files need Windows line endings when checked out.
+executable-configuration-builder/source/*.vbp text eol=crlf
+executable-configuration-builder/source/*.vbg text eol=crlf
+executable-configuration-builder/source/*.frm text eol=crlf
+executable-configuration-builder/source/*.bas text eol=crlf
+executable-configuration-builder/tests/*.vbp text eol=crlf
+executable-configuration-builder/tests/*.bas text eol=crlf
