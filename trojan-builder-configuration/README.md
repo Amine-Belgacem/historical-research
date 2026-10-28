@@ -1,4 +1,4 @@
-# Executable Configuration Builder
+# Trojan Builder Configuration
 
 This VB6 project illustrates how historical Trojan builders packaged FTP configuration inside a generated executable, and what that configuration served.
 
@@ -25,13 +25,13 @@ Together they demonstrate the configuration stage. The template displays the rec
 
 ## Build
 
-Open [Example.vbg](source/Example.vbg) to edit both projects in VB6. Build from PowerShell in this folder:
+Open [TrojanBuilderConfiguration.vbg](source/TrojanBuilderConfiguration.vbg) to edit both projects in VB6. Build from PowerShell in this folder:
 
 ```powershell
 .\build.ps1
 ```
 
-The script uses an installed VB6 compiler; supply `-Compiler` for a different location. Run `build/FtpBuilder.exe` with `FtpTemplate.exe` beside it, enter example settings, and select **Build EXE**. The generated EXE runs independently, without an external configuration file.
+The script uses an installed VB6 compiler; supply `-Compiler` for a different location. Run `build/TrojanConfigBuilder.exe` with `TrojanConfigTemplate.exe` beside it, enter example settings, and select **Build EXE**. The generated EXE runs independently, without an external configuration file.
 
 The [shared module](source/Configuration.bas) preserves the template bytes, appends a serialized `PropertyBag`, and writes a 16-byte footer containing `FTPDMO01`, the payload offset, and its length. The template uses that footer to locate its settings.
 

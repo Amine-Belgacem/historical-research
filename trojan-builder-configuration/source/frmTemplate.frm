@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form frmTemplate
    Tag = "FTPDEMO-TEMPLATE-07A2"
    BorderStyle = 1
-   Caption = "Embedded FTP settings - Template"
+   Caption = "Trojan Builder Configuration - Template"
    ClientWidth = 10080
    ClientHeight = 6180
    MaxButton = 0

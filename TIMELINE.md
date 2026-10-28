@@ -11,6 +11,6 @@
 
 Original files remain as they were archived. The collection was organized in 2026.
 
-The MSN work follows a research-to-implementation progression: the network investigation led to Hotmail Kira. The Executable Configuration Builder and unfinished VB6 tool share a configuration-builder pattern, illustrated by the [working project](executable-configuration-builder/README.md).
+The MSN work follows a research-to-implementation progression: the network investigation led to Hotmail Kira. The Trojan Builder Configuration and unfinished VB6 tool share a configuration-builder pattern, illustrated by the [working project](trojan-builder-configuration/README.md).
 
 [Back to the collection](README.md)

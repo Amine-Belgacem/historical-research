@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form frmBuilder
    BorderStyle = 1
-   Caption = "Embedded FTP settings - Builder"
+   Caption = "Trojan Builder Configuration - Builder"
    ClientWidth = 10080
    ClientHeight = 7860
    MaxButton = 0
@@ -31,7 +31,7 @@ Begin VB.Form frmBuilder
       Top = 840
       Width = 9360
       Height = 480
-      Caption = "Embed example FTP settings into a copy of FtpTemplate.exe. The output reads them from its own EXE."
+      Caption = "Embed example FTP settings into a copy of TrojanConfigTemplate.exe. The output reads them from its own EXE."
       BackStyle = 0
    End
    Begin VB.Frame fraSettings

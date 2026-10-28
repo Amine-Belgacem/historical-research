@@ -5,7 +5,7 @@
 # Keep every original byte, including encoding, line endings, and whitespace.
 **/originals/** -text -whitespace
 # VB6 project files need Windows line endings when checked out.
-executable-configuration-builder/source/*.vbp text eol=crlf
-executable-configuration-builder/source/*.vbg text eol=crlf
-executable-configuration-builder/source/*.frm text eol=crlf
-executable-configuration-builder/source/*.bas text eol=crlf
+trojan-builder-configuration/source/*.vbp text eol=crlf
+trojan-builder-configuration/source/*.vbg text eol=crlf
+trojan-builder-configuration/source/*.frm text eol=crlf
+trojan-builder-configuration/source/*.bas text eol=crlf

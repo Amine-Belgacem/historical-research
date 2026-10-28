@@ -6,9 +6,9 @@
 /Thumbs.db
 /Desktop.ini
 # Generated output from the VB6 executable configuration project.
-/executable-configuration-builder/build/
-/executable-configuration-builder/source/*.vbw
-/executable-configuration-builder/source/*.log
-/executable-configuration-builder/source/MSSCCPRJ.SCC
-/executable-configuration-builder/source/*.cfg
-/executable-configuration-builder/source/*.exe
+/trojan-builder-configuration/build/
+/trojan-builder-configuration/source/*.vbw
+/trojan-builder-configuration/source/*.log
+/trojan-builder-configuration/source/MSSCCPRJ.SCC
+/trojan-builder-configuration/source/*.cfg
+/trojan-builder-configuration/source/*.exe

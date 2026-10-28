@@ -32,11 +32,11 @@ Public Function OwnExecutablePath() As String
 End Function
 
 Public Function DemoTemplatePath() As String
-    DemoTemplatePath = App.Path & IIf(Right$(App.Path, 1) = "\", "", "\") & "FtpTemplate.exe"
+    DemoTemplatePath = App.Path & IIf(Right$(App.Path, 1) = "\", "", "\") & "TrojanConfigTemplate.exe"
 End Function
 
 Public Function DefaultOutputPath() As String
-    DefaultOutputPath = App.Path & IIf(Right$(App.Path, 1) = "\", "", "\") & "ConfiguredDemo.exe"
+    DefaultOutputPath = App.Path & IIf(Right$(App.Path, 1) = "\", "", "\") & "ConfiguredExample.exe"
 End Function
 
 Public Sub ValidateSettings(ByRef settings As FtpSettings)
@@ -109,7 +109,7 @@ Private Function CheckDemoTemplate(ByVal fileName As String) As Long
         wideMarker = wideMarker & Mid$(TEMPLATE_MARKER, index, 1) & vbNullChar
     Next
     If InStr(image, TEMPLATE_MARKER) = 0 And InStr(image, wideMarker) = 0 Then
-        Err.Raise CONFIG_ERROR, , "Use FtpTemplate.exe built from this example's Template.vbp project."
+        Err.Raise CONFIG_ERROR, , "Use TrojanConfigTemplate.exe built from this example's Template.vbp project."
     End If
     Get #fileNumber, LOF(fileNumber) - FOOTER_BYTES + 1, footer
     If footer = FOOTER_MAGIC Then Err.Raise CONFIG_ERROR, , "Use the unconfigured template, not an already configured output."

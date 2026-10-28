@@ -17,7 +17,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Focus |
 |---|---|
-| [Executable Configuration Builder](executable-configuration-builder/README.md) | How historical Trojan builders embedded FTP reporting settings into generated executables, demonstrated by two VB6 projects. |
+| [Trojan Builder Configuration](trojan-builder-configuration/README.md) | How historical Trojan builders embedded FTP reporting settings into generated executables, demonstrated by two VB6 projects. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 
@@ -33,7 +33,7 @@ Original filenames, directory structure, encodings, resources, binaries, and exi
 
 The MSN investigation also contains a `hotmail-kira/` subfolder for its resulting application, with the complete original project inside it.
 
-The Executable Configuration Builder contains its two editable VB6 projects under `source/`, with a build script.
+The Trojan Builder Configuration contains its two editable VB6 projects under `source/`, with a build script.
 
 This repository is private because the complete originals include personal and account-related material.
 

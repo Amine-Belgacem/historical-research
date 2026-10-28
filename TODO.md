@@ -1,6 +1,6 @@
 # To-do
 
-Earlier tasks were completed on 26 October 2026. The Executable Configuration Builder is available as a [working VB6 project](executable-configuration-builder/README.md).
+Earlier tasks were completed on 26 October 2026. The Trojan Builder Configuration is available as a [working VB6 project](trojan-builder-configuration/README.md).
 
 ## Application naming
 
@@ -21,7 +21,7 @@ Cleanup requested for this repository:
 
 - [x] Present Hotmail Kira as the application resulting from the MSN network investigation. Update the overview and both work introductions to explain the progression from investigation to implementation.
 
-## Executable Configuration Builder
+## Trojan Builder Configuration
 
 - [x] Provide two readable VB6 projects: an EXE builder and a self-reading template with embedded FTP settings.
 - [x] Compile and verify the example with native VB6.
