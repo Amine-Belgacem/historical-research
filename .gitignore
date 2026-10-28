@@ -11,3 +11,5 @@
 /executable-configuration-builder/source/*.log
 /executable-configuration-builder/tests/*.vbw
 /executable-configuration-builder/tests/*.log
+/executable-configuration-builder/source/MSSCCPRJ.SCC
+/executable-configuration-builder/source/*.cfg

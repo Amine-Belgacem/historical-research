@@ -17,7 +17,7 @@ A collection of software projects and research covering Windows applications, bi
 
 | Work | Focus |
 |---|---|
-| [Executable Configuration Builder](executable-configuration-builder/README.md) | Historical executable configuration, with a measured byte layout and a working offline VB6 builder/viewer example. |
+| [Executable Configuration Builder](executable-configuration-builder/README.md) | Historical executable configuration, with a measured byte layout and a working VB6 builder/template example that embeds FTP settings in an EXE. |
 | [Unfinished VB6 tool](keylogger-unfinished/README.md) | FTP interface, configuration, custom controls, and component integration. |
 | [Batch password generator](password-generator/README.md) | A historical batch script with its original credit. |
 

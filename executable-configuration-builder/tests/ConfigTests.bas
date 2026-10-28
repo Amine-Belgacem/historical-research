@@ -7,9 +7,8 @@ Private workFolder As String
 Private results As String
 
 Public Sub Main()
-    Dim logNumber As Integer
+    Dim fileNumber As Integer
     Dim exitCode As Long
-    Dim failure As String
     Dim folderBase As String
     Dim attempt As Long
     On Error GoTo Failed
@@ -20,24 +19,24 @@ Public Sub Main()
         workFolder = folderBase & "-" & CStr(attempt)
     Loop
     MkDir workFolder
-    TestRoundTrip
+    TestEmbeddedRoundTrip
     TestValidation
-    TestDamagedFiles
+    TestDamagedExecutables
     TestForms
+    CreateSelfReadingExample
     results = results & "PASS: " & CStr(checks) & " checks" & vbCrLf
     GoTo Finished
 Failed:
-    failure = Err.Description
-    results = results & "FAIL after " & CStr(checks) & " checks: " & failure & vbCrLf
+    results = results & "FAIL after " & CStr(checks) & " checks: " & Err.Description & vbCrLf
     exitCode = 1
 Finished:
     On Error Resume Next
     Unload frmBuilder
-    Unload frmViewer
-    logNumber = FreeFile
-    Open App.Path & "\self-test-results.txt" For Output As #logNumber
-    Print #logNumber, results;
-    Close #logNumber
+    Unload frmTemplate
+    fileNumber = FreeFile
+    Open App.Path & "\self-test-results.txt" For Output As #fileNumber
+    Print #fileNumber, results;
+    Close #fileNumber
     ExitProcess exitCode
 End Sub
 
@@ -60,162 +59,146 @@ Private Function FileBytes(ByVal fileName As String) As String
     Close #fileNumber
 End Function
 
-Private Sub TestRoundTrip()
-    Dim before As DisplaySettings
-    Dim after As DisplaySettings
+Private Sub TestEmbeddedRoundTrip()
+    Dim before As FtpSettings
+    Dim after As FtpSettings
+    Dim templateBytes As String
+    Dim outputBytes As String
+    Dim magic As String * 8
+    Dim offset As Long
+    Dim length As Long
     Dim fileNumber As Integer
-    Dim signature As String * 8
-    Dim payloadLength As Long
-    Dim fileName As String
-    fileName = TestPath("round-trip.cfg")
-    SetDefaultSettings before
-    before.Title = "Saved " & ChrW(&HE9) & " " & ChrW(&H4F60)
-    before.Message = "First line" & vbCrLf & "Quotes: ""hello""; symbols: <>&"
-    before.Theme = "Dark"
-    before.ShowTimestamp = False
-    SaveConfiguration fileName, before
-    ReadConfiguration fileName, after
-    AssertTrue after.Title = before.Title, "Unicode title round trip"
-    AssertTrue after.Message = before.Message, "Multiline message and punctuation round trip"
-    AssertTrue after.Theme = "Dark", "Theme round trip"
-    AssertTrue after.ShowTimestamp = False, "False Boolean round trip"
-
+    SetExampleSettings before
+    before.UserName = "Demo " & ChrW(&HE9) & " " & ChrW(&H4F60)
+    before.Password = "Quotes: ""x"" & symbols <>"
+    templateBytes = FileBytes(DemoTemplatePath())
+    BuildConfiguredExecutable DemoTemplatePath(), TestPath("round-trip.exe"), before
+    ReadEmbeddedSettings TestPath("round-trip.exe"), after
+    AssertTrue after.Host = before.Host, "FTP host is embedded and recovered"
+    AssertTrue after.UserName = before.UserName, "Unicode FTP username round trip"
+    AssertTrue after.Password = before.Password, "FTP password and punctuation round trip"
+    outputBytes = FileBytes(TestPath("round-trip.exe"))
+    AssertTrue Left$(outputBytes, Len(templateBytes)) = templateBytes, "Every original template byte is preserved"
+    AssertTrue FileBytes(DemoTemplatePath()) = templateBytes, "The input template is unchanged"
     fileNumber = FreeFile
-    Open fileName For Binary Access Read As #fileNumber
-    Get #fileNumber, , signature
-    Get #fileNumber, , payloadLength
-    AssertTrue signature = "VBCFG001", "Versioned data-file signature"
-    AssertTrue LOF(fileNumber) = 12 + payloadLength, "Header length matches the actual payload"
+    Open TestPath("round-trip.exe") For Binary Access Read As #fileNumber
+    Get #fileNumber, LOF(fileNumber) - 15, magic
+    Get #fileNumber, , offset
+    Get #fileNumber, , length
+    AssertTrue magic = "FTPDMO01", "Footer identifies the demo overlay"
+    AssertTrue offset = Len(templateBytes), "Footer points immediately after the untouched template"
+    AssertTrue LOF(fileNumber) = offset + length + 16, "Payload and footer lengths match the EXE size"
     Close #fileNumber
-
-    before.Message = String$(2000, "x")
-    SaveConfiguration fileName, before
-    before.Message = "Short"
-    before.ShowTimestamp = True
-    SaveConfiguration fileName, before
-    ReadConfiguration fileName, after
-    AssertTrue after.Message = "Short", "Shorter replacement has no stale data"
-    AssertTrue after.ShowTimestamp, "True Boolean round trip"
-    AssertTrue Len(Dir$(workFolder & "\vbc*.tmp")) = 0, "Successful saves leave no temporary file"
+    before.Password = String$(256, "x")
+    BuildConfiguredExecutable DemoTemplatePath(), TestPath("round-trip.exe"), before
+    before.Password = "short"
+    BuildConfiguredExecutable DemoTemplatePath(), TestPath("round-trip.exe"), before
+    ReadEmbeddedSettings TestPath("round-trip.exe"), after
+    AssertTrue after.Password = "short", "Shorter replacement has no stale payload"
+    AssertTrue Len(Dir$(workFolder & "\ftd*.tmp")) = 0, "Successful builds clean up temporary files"
 End Sub
 
-Private Sub ExpectSaveFailure(ByVal fileName As String, ByRef settings As DisplaySettings, ByVal label As String)
-    Dim errorNumber As Long
+Private Sub ExpectBuildFailure(ByVal templateName As String, ByVal outputName As String, ByRef settings As FtpSettings, ByVal label As String)
+    Dim number As Long
     On Error Resume Next
-    SaveConfiguration fileName, settings
-    errorNumber = Err.Number
+    BuildConfiguredExecutable templateName, outputName, settings
+    number = Err.Number
     Err.Clear
     On Error GoTo 0
-    AssertTrue errorNumber <> 0, label
+    AssertTrue number <> 0, label
 End Sub
 
 Private Sub ExpectReadFailure(ByVal fileName As String, ByVal label As String)
-    Dim settings As DisplaySettings
-    Dim errorNumber As Long
-    settings.Title = "Keep the caller's old state"
+    Dim settings As FtpSettings
+    Dim number As Long
+    settings.Host = "keep-the-callers-old-state.invalid"
     On Error Resume Next
-    ReadConfiguration fileName, settings
-    errorNumber = Err.Number
+    ReadEmbeddedSettings fileName, settings
+    number = Err.Number
     Err.Clear
     On Error GoTo 0
-    AssertTrue errorNumber <> 0, label
-    AssertTrue settings.Title = "Keep the caller's old state", "Failed load leaves caller settings unchanged"
+    AssertTrue number <> 0, label
+    AssertTrue settings.Host = "keep-the-callers-old-state.invalid", "Failed read does not partially change caller settings"
 End Sub
 
 Private Sub TestValidation()
-    Dim settings As DisplaySettings
+    Dim settings As FtpSettings
     Dim saved As String
-    Dim fileName As String
+    Dim templateBytes As String
     Dim heldNumber As Integer
-    fileName = TestPath("preserve.cfg")
-    SetDefaultSettings settings
-    SaveConfiguration fileName, settings
-    saved = FileBytes(fileName)
-    settings.Title = "   "
-    ExpectSaveFailure fileName, settings, "Whitespace-only title is rejected"
-    AssertTrue FileBytes(fileName) = saved, "Validation failure preserves existing file"
-    SetDefaultSettings settings
-    settings.Message = ""
-    ExpectSaveFailure fileName, settings, "Empty message is rejected"
-    settings.Message = String$(2001, "x")
-    ExpectSaveFailure fileName, settings, "Overlong message is rejected"
-    SetDefaultSettings settings
-    settings.Title = String$(81, "x")
-    ExpectSaveFailure fileName, settings, "Overlong title is rejected"
-    SetDefaultSettings settings
-    settings.Theme = "Unknown"
-    ExpectSaveFailure fileName, settings, "Unknown theme is rejected"
-    SetDefaultSettings settings
-    ExpectSaveFailure TestPath("not-an-output.exe"), settings, "Executable output paths are rejected"
-    AssertTrue Dir$(TestPath("not-an-output.exe")) = "", "No executable output is created"
-    ExpectSaveFailure TestPath("missing\file.cfg"), settings, "Missing output folder is reported"
-    ExpectSaveFailure "\\server\share\example.cfg", settings, "UNC network paths are rejected"
-
-    ' Holding the target open forces replacement to fail after temporary-file creation.
+    SetExampleSettings settings
+    BuildConfiguredExecutable DemoTemplatePath(), TestPath("preserve.exe"), settings
+    saved = FileBytes(TestPath("preserve.exe"))
+    templateBytes = FileBytes(DemoTemplatePath())
+    settings.Host = "   "
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Empty host is rejected"
+    AssertTrue FileBytes(TestPath("preserve.exe")) = saved, "Validation failure preserves existing output"
+    SetExampleSettings settings
+    settings.UserName = ""
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Empty username is rejected"
+    SetExampleSettings settings
+    settings.Password = ""
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Empty password is rejected"
+    settings.Password = String$(257, "x")
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Overlong password is rejected"
+    SetExampleSettings settings
+    settings.Host = "host" & vbNullChar & ".invalid"
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Null characters are rejected"
+    SetExampleSettings settings
+    ExpectBuildFailure DemoTemplatePath(), TestPath("not-an-exe.cfg"), settings, "Sidecar configuration output is rejected"
+    AssertTrue Dir$(TestPath("not-an-exe.cfg")) = "", "No cfg file is generated"
+    ExpectBuildFailure DemoTemplatePath(), DemoTemplatePath(), settings, "Overwriting the input template is rejected"
+    AssertTrue FileBytes(DemoTemplatePath()) = templateBytes, "Input template remains intact after rejected overwrite"
+    ExpectBuildFailure TestPath("absent.exe"), TestPath("output.exe"), settings, "Missing template is reported"
+    ExpectBuildFailure TestPath("preserve.exe"), TestPath("output.exe"), settings, "Already configured output cannot be reused as the template"
+    ExpectBuildFailure DemoTemplatePath(), TestPath("missing\file.exe"), settings, "Missing output folder is reported"
     heldNumber = FreeFile
-    Open fileName For Binary Access Read Lock Read Write As #heldNumber
-    ExpectSaveFailure fileName, settings, "Locked output is reported"
+    Open TestPath("preserve.exe") For Binary Access Read Lock Read Write As #heldNumber
+    ExpectBuildFailure DemoTemplatePath(), TestPath("preserve.exe"), settings, "Locked output is reported"
     Close #heldNumber
-    AssertTrue FileBytes(fileName) = saved, "Failed replacement preserves the old file"
-    AssertTrue Len(Dir$(workFolder & "\vbc*.tmp")) = 0, "Failed replacement cleans up its temporary file"
+    AssertTrue FileBytes(TestPath("preserve.exe")) = saved, "Failed replacement preserves the previous EXE"
+    AssertTrue Len(Dir$(workFolder & "\ftd*.tmp")) = 0, "Failed replacement removes its temporary file"
 End Sub
 
-Private Sub WriteFixture(ByVal fileName As String, ByVal magic As String, ByVal length As Long, ByVal content As String)
+Private Sub ChangeLong(ByVal fileName As String, ByVal distanceFromEnd As Long, ByVal value As Long)
     Dim fileNumber As Integer
-    Dim signature As String * 8
-    signature = magic
     fileNumber = FreeFile
-    Open fileName For Output As #fileNumber
-    Close #fileNumber
     Open fileName For Binary Access Write As #fileNumber
-    Put #fileNumber, , signature
-    Put #fileNumber, , length
-    Put #fileNumber, , content
+    Put #fileNumber, LOF(fileNumber) - distanceFromEnd + 1, value
     Close #fileNumber
 End Sub
 
-Private Sub TestDamagedFiles()
+Private Sub TestDamagedExecutables()
+    Dim settings As FtpSettings
     Dim fileName As String
     Dim fileNumber As Integer
-    Dim bag As New PropertyBag
-    Dim payload() As Byte
-    Dim payloadLength As Long
-    Dim signature As String * 8
-    fileName = TestPath("damaged.cfg")
-    ExpectReadFailure TestPath("absent.cfg"), "Missing input file is reported"
-    AssertTrue Dir$(TestPath("absent.cfg")) = "", "Reading a missing file does not create it"
+    Dim wrong As String * 8
+    SetExampleSettings settings
+    ExpectReadFailure TestPath("absent.exe"), "Missing input is reported"
+    AssertTrue Dir$(TestPath("absent.exe")) = "", "A missing input is never created"
+    ExpectReadFailure DemoTemplatePath(), "Unconfigured template reports missing settings"
+    fileName = TestPath("damaged.exe")
+    BuildConfiguredExecutable DemoTemplatePath(), fileName, settings
     fileNumber = FreeFile
-    Open fileName For Output As #fileNumber
-    Close #fileNumber
-    ExpectReadFailure fileName, "Empty file is rejected"
-    WriteFixture fileName, "BADMAGIC", 1, "x"
-    ExpectReadFailure fileName, "Wrong signature is rejected"
-    WriteFixture fileName, "VBCFG001", -1, "x"
-    ExpectReadFailure fileName, "Negative payload length is rejected"
-    WriteFixture fileName, "VBCFG001", 1048577, "x"
-    ExpectReadFailure fileName, "Oversized payload length is rejected before allocation"
-    WriteFixture fileName, "VBCFG001", 10, "x"
-    ExpectReadFailure fileName, "Truncated payload is rejected"
-    WriteFixture fileName, "VBCFG001", 1, "extra"
-    ExpectReadFailure fileName, "Unexpected trailing data is rejected"
-    WriteFixture fileName, "VBCFG001", 4, "junk"
-    ExpectReadFailure fileName, "Invalid PropertyBag data is rejected"
-
-    bag.WriteProperty "Title", "Has missing fields"
-    payload = bag.Contents
-    payloadLength = UBound(payload) - LBound(payload) + 1
-    signature = "VBCFG001"
-    fileNumber = FreeFile
-    Open fileName For Output As #fileNumber
-    Close #fileNumber
     Open fileName For Binary Access Write As #fileNumber
-    Put #fileNumber, , signature
-    Put #fileNumber, , payloadLength
-    Put #fileNumber, , payload
+    wrong = "BADMAGIC"
+    Put #fileNumber, LOF(fileNumber) - 15, wrong
     Close #fileNumber
-    ExpectReadFailure fileName, "Missing setting properties are rejected"
-    Name fileName As TestPath("renamed.cfg")
-    AssertTrue Dir$(TestPath("renamed.cfg")) <> "", "Rejected files are closed and can be renamed"
+    ExpectReadFailure fileName, "Corrupted footer marker is rejected"
+    BuildConfiguredExecutable DemoTemplatePath(), fileName, settings
+    ChangeLong fileName, 8, -1
+    ExpectReadFailure fileName, "Negative payload offset is rejected"
+    BuildConfiguredExecutable DemoTemplatePath(), fileName, settings
+    ChangeLong fileName, 8, FileLen(fileName)
+    ExpectReadFailure fileName, "Offset beyond the payload region is rejected"
+    BuildConfiguredExecutable DemoTemplatePath(), fileName, settings
+    ChangeLong fileName, 4, 1048577
+    ExpectReadFailure fileName, "Excessive payload length is rejected before allocation"
+    BuildConfiguredExecutable DemoTemplatePath(), fileName, settings
+    ChangeLong fileName, 4, 1
+    ExpectReadFailure fileName, "Inconsistent payload length is rejected"
+    Name fileName As TestPath("renamed.exe")
+    AssertTrue Dir$(TestPath("renamed.exe")) <> "", "Rejected EXEs are closed and can be renamed"
 End Sub
 
 Private Sub CheckControlBounds(ByVal window As Form)
@@ -224,39 +207,42 @@ Private Sub CheckControlBounds(ByVal window As Form)
     For Each item In window.Controls
         Set parent = item.Container
         AssertTrue item.Left >= 0 And item.Top >= 0, window.Name & "." & item.Name & " has a visible position"
-        AssertTrue item.Left + item.Width <= parent.Width And item.Top + item.Height <= parent.Height, window.Name & "." & item.Name & " fits inside its container"
+        AssertTrue item.Left + item.Width <= parent.Width And item.Top + item.Height <= parent.Height, window.Name & "." & item.Name & " fits its container"
     Next
 End Sub
 
 Private Sub TestForms()
-    Dim settings As DisplaySettings
-    SetDefaultSettings settings
-    settings.Title = "Form integration"
-    settings.Message = "Written through the builder; restored through the viewer."
-    settings.Theme = "Dark"
-    settings.ShowTimestamp = False
+    Dim settings As FtpSettings
+    SetExampleSettings settings
     Load frmBuilder
-    Load frmViewer
+    Load frmTemplate
     CheckControlBounds frmBuilder
-    CheckControlBounds frmViewer
+    CheckControlBounds frmTemplate
     frmBuilder.ApplySettings settings
-    frmBuilder.txtFileName.Text = TestPath("form.cfg")
-    AssertTrue frmBuilder.SaveCurrentFile(), "Builder saves settings through its UI handler"
-    AssertTrue frmViewer.OpenConfiguration(TestPath("form.cfg")), "Viewer loads the builder's saved file"
-    AssertTrue frmViewer.lblPreviewTitle.Caption = settings.Title, "Viewer restores the title"
-    AssertTrue frmViewer.txtPreviewMessage.Text = settings.Message, "Viewer restores the message"
-    AssertTrue frmViewer.lblTimestamp.Caption = "", "Timestamp remains hidden when disabled"
-    AssertTrue frmViewer.fraPreview.BackColor = RGB(35, 40, 48), "Dark theme reaches the preview"
-    settings.Theme = "Light"
-    settings.ShowTimestamp = True
-    SaveConfiguration TestPath("form.cfg"), settings
-    AssertTrue frmViewer.OpenConfiguration(TestPath("form.cfg")), "Viewer reloads updated settings"
-    AssertTrue frmViewer.fraPreview.BackColor = vbWhite, "Light theme reaches the preview"
-    AssertTrue Len(frmViewer.lblTimestamp.Caption) > 0, "Enabled timestamp is displayed"
-    AssertTrue Not frmViewer.OpenConfiguration(TestPath("absent.cfg")), "Viewer reports a failed load"
-    AssertTrue frmViewer.txtPreviewMessage.Text = "", "Failed viewer load clears stale content"
-    AssertTrue InStr(frmViewer.lblStatus.Caption, "Not loaded:") = 1, "Viewer presents an explanatory error"
-    frmBuilder.txtTitle.Text = ""
-    AssertTrue Not frmBuilder.SaveCurrentFile(), "Builder blocks invalid form input"
-    AssertTrue InStr(frmBuilder.lblStatus.Caption, "Not saved:") = 1, "Builder presents an explanatory error"
+    frmBuilder.txtOutput.Text = TestPath("form.exe")
+    AssertTrue frmBuilder.BuildCurrentExecutable(), "Builder form creates a configured EXE"
+    AssertTrue frmBuilder.VerifyCurrentExecutable(), "Builder verifies its own output without running it"
+    AssertTrue frmTemplate.OpenEmbeddedConfiguration(TestPath("form.exe")), "Template form reads the embedded payload"
+    AssertTrue frmTemplate.txtHost.Text = settings.Host, "Template displays the embedded host"
+    AssertTrue frmTemplate.txtUserName.Text = settings.UserName, "Template displays the embedded username"
+    AssertTrue frmTemplate.txtPassword.Text = settings.Password, "Template restores the embedded password"
+    AssertTrue frmTemplate.txtPassword.PasswordChar = "*", "Password is masked by default"
+    frmTemplate.chkShowPassword.Value = vbChecked
+    AssertTrue frmTemplate.txtPassword.PasswordChar = "", "Show-password checkbox works"
+    frmTemplate.chkShowPassword.Value = vbUnchecked
+    AssertTrue frmTemplate.txtPassword.PasswordChar = "*", "Password masking can be restored"
+    AssertTrue Not frmTemplate.OpenEmbeddedConfiguration(TestPath("absent.exe")), "Template presents a failed read"
+    AssertTrue frmTemplate.txtPassword.Text = "", "Failed read clears stale fields"
+    frmBuilder.txtHost.Text = ""
+    AssertTrue Not frmBuilder.BuildCurrentExecutable(), "Builder blocks invalid form input"
+    AssertTrue InStr(frmBuilder.lblStatus.Caption, "Not built:") = 1, "Builder shows an explanatory error"
+End Sub
+
+Private Sub CreateSelfReadingExample()
+    Dim settings As FtpSettings
+    settings.Host = "ftp.embedded.invalid"
+    settings.UserName = "self-test-user"
+    settings.Password = "test-only-secret"
+    BuildConfiguredExecutable DemoTemplatePath(), App.Path & "\SelfConfigured.exe", settings
+    AssertTrue FileLen(App.Path & "\SelfConfigured.exe") > FileLen(DemoTemplatePath()), "Self-reading EXE is available for the process-level test"
 End Sub

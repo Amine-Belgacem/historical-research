@@ -1,6 +1,6 @@
 # How the Executable Configuration Builder Worked
 
-The [editable offline example](README.md#working-example) demonstrates property-bag storage and restoration using local display settings. The analysis below concerns the archived executable-writing implementation in `originals/`; its defects and byte layout do not describe the new example.
+The [editable example](README.md#working-example) implements two source projects: a builder that embeds FTP properties into a copy of the demo template EXE, and a template that reads those properties from its own executable. The generated copy displays the values without connecting or uploading. It uses a versioned footer and preserves every original template byte. The analysis below concerns the archived implementation in `originals/`, which has a different layout.
 
 ## From settings to a configured program
 

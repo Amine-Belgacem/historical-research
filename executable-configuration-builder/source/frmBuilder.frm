@@ -1,9 +1,9 @@
 VERSION 5.00
 Begin VB.Form frmBuilder
    BorderStyle = 1
-   Caption = "Local configuration - Builder"
+   Caption = "Embedded FTP settings - Builder"
    ClientWidth = 10080
-   ClientHeight = 8460
+   ClientHeight = 7860
    MaxButton = 0
    MinButton = -1
    StartUpPosition = 2
@@ -22,7 +22,7 @@ Begin VB.Form frmBuilder
       Top = 240
       Width = 9360
       Height = 420
-      Caption = "Configuration builder"
+      Caption = "FTP configuration builder"
       BackStyle = 0
       ForeColor = &H00B15D20&
    End
@@ -31,134 +31,125 @@ Begin VB.Form frmBuilder
       Top = 840
       Width = 9360
       Height = 480
-      Caption = "Create a local settings file, then load it in the viewer to see the values restored."
+      Caption = "Embed example FTP settings into a copy of FtpTemplate.exe. The output reads them from its own EXE."
       BackStyle = 0
    End
    Begin VB.Frame fraSettings
-      Caption = "1. Choose what the viewer displays"
+      Caption = "1. FTP settings to embed"
       Left = 360
       Top = 1500
       Width = 9360
-      Height = 3780
+      Height = 3000
       BackColor = &H00F8F6F4&
-      Begin VB.Label lblTitle
+      Begin VB.Label lblHost
          Left = 240
          Top = 360
-         Width = 8700
+         Width = 1800
          Height = 255
-         Caption = "&Title"
+         Caption = "FTP &host"
          BackStyle = 0
       End
-      Begin VB.TextBox txtTitle
+      Begin VB.TextBox txtHost
          Left = 240
          Top = 660
          Width = 8760
          Height = 375
          Text = ""
-         MaxLength = 80
+         MaxLength = 253
          TabIndex = 0
       End
-      Begin VB.Label lblMessage
+      Begin VB.Label lblUserName
          Left = 240
          Top = 1200
-         Width = 8700
+         Width = 1800
          Height = 255
-         Caption = "&Message"
+         Caption = "FTP &username"
          BackStyle = 0
       End
-      Begin VB.TextBox txtMessage
+      Begin VB.TextBox txtUserName
          Left = 240
          Top = 1500
          Width = 8760
-         Height = 1200
+         Height = 375
          Text = ""
-         MultiLine = -1
-         ScrollBars = 2
-         MaxLength = 2000
+         MaxLength = 128
          TabIndex = 1
       End
-      Begin VB.Label lblTheme
+      Begin VB.Label lblPassword
          Left = 240
-         Top = 2850
-         Width = 2400
+         Top = 2040
+         Width = 1800
          Height = 255
-         Caption = "T&heme"
+         Caption = "FTP &password"
          BackStyle = 0
       End
-      Begin VB.ComboBox cboTheme
+      Begin VB.TextBox txtPassword
          Left = 240
-         Top = 3180
-         Width = 2640
-         Height = 315
-         Style = 2
+         Top = 2340
+         Width = 8760
+         Height = 375
+         Text = ""
+         MaxLength = 256
+         PasswordChar = "*"
          TabIndex = 2
       End
-      Begin VB.CheckBox chkTimestamp
-         Left = 3600
-         Top = 3180
-         Width = 5100
-         Height = 315
-         Caption = "Show the current &date and time"
-         BackColor = &H00F8F6F4&
-         TabIndex = 3
-      End
    End
-   Begin VB.Frame fraFile
-      Caption = "2. Save a configuration file (.cfg)"
+   Begin VB.Frame fraOutput
+      Caption = "2. Configured executable (.exe)"
       Left = 360
-      Top = 5520
+      Top = 4800
       Width = 9360
       Height = 1080
       BackColor = &H00F8F6F4&
-      Begin VB.TextBox txtFileName
+      Begin VB.TextBox txtOutput
          Left = 240
          Top = 420
          Width = 8760
          Height = 375
          Text = ""
-         TabIndex = 4
+         TabIndex = 3
       End
    End
-   Begin VB.CommandButton cmdSave
+   Begin VB.CommandButton cmdBuild
       Left = 360
-      Top = 6960
+      Top = 6240
       Width = 2340
       Height = 480
-      Caption = "&Save configuration"
+      Caption = "&Build EXE"
       Default = -1
-      TabIndex = 5
+      TabIndex = 4
    End
-   Begin VB.CommandButton cmdView
+   Begin VB.CommandButton cmdVerify
       Left = 2880
-      Top = 6960
+      Top = 6240
       Width = 2340
       Height = 480
-      Caption = "&View saved file"
-      TabIndex = 6
+      Caption = "&Verify EXE"
+      TabIndex = 5
    End
    Begin VB.CommandButton cmdDefaults
       Left = 5400
-      Top = 6960
+      Top = 6240
       Width = 1980
       Height = 480
-      Caption = "Reset &defaults"
-      TabIndex = 7
+      Caption = "Reset &example"
+      TabIndex = 6
    End
    Begin VB.CommandButton cmdClose
       Left = 7560
-      Top = 6960
+      Top = 6240
       Width = 2160
       Height = 480
       Caption = "&Close"
       Cancel = -1
-      TabIndex = 8
+      TabIndex = 7
    End
    Begin VB.Label lblStatus
       Left = 360
-      Top = 7740
+      Top = 7020
       Width = 9360
-      Height = 420
-      Caption = "Ready. Edit the settings and save a .cfg file."
+      Height = 540
+      Caption = "Ready. The template displays settings without making an FTP connection."
       BackStyle = 0
    End
 End
@@ -170,72 +161,64 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Form_Load()
-    Dim settings As DisplaySettings
+    Dim settings As FtpSettings
     lblHeading.Font.Size = 18
     lblHeading.Font.Bold = True
-    cboTheme.AddItem "Light"
-    cboTheme.AddItem "Dark"
-    SetDefaultSettings settings
+    SetExampleSettings settings
     ApplySettings settings
-    txtFileName.Text = DefaultConfigurationPath()
+    txtOutput.Text = DefaultOutputPath()
 End Sub
 
-Friend Sub ApplySettings(ByRef settings As DisplaySettings)
-    txtTitle.Text = settings.Title
-    txtMessage.Text = settings.Message
-    If settings.Theme = "Dark" Then
-        cboTheme.ListIndex = 1
-    Else
-        cboTheme.ListIndex = 0
-    End If
-    If settings.ShowTimestamp Then
-        chkTimestamp.Value = vbChecked
-    Else
-        chkTimestamp.Value = vbUnchecked
-    End If
+Friend Sub ApplySettings(ByRef settings As FtpSettings)
+    txtHost.Text = settings.Host
+    txtUserName.Text = settings.UserName
+    txtPassword.Text = settings.Password
 End Sub
 
-Private Sub ReadFormSettings(ByRef settings As DisplaySettings)
-    settings.Title = txtTitle.Text
-    settings.Message = txtMessage.Text
-    settings.Theme = cboTheme.Text
-    settings.ShowTimestamp = (chkTimestamp.Value = vbChecked)
-End Sub
-
-Public Function SaveCurrentFile() As Boolean
-    Dim settings As DisplaySettings
-    On Error GoTo SaveFailed
-    ReadFormSettings settings
-    SaveConfiguration txtFileName.Text, settings
-    txtFileName.Text = ConfigurationPath(txtFileName.Text)
+Public Function BuildCurrentExecutable() As Boolean
+    Dim settings As FtpSettings
+    On Error GoTo Failed
+    settings.Host = txtHost.Text
+    settings.UserName = txtUserName.Text
+    settings.Password = txtPassword.Text
+    BuildConfiguredExecutable DemoTemplatePath(), txtOutput.Text, settings
+    txtOutput.Text = ExecutablePath(txtOutput.Text)
     lblStatus.ForeColor = RGB(25, 110, 55)
-    lblStatus.Caption = "Saved. Choose 'View saved file' to read the configuration back."
-    SaveCurrentFile = True
+    lblStatus.Caption = "Built successfully. Open the output EXE to display its embedded FTP settings."
+    BuildCurrentExecutable = True
     Exit Function
-SaveFailed:
+Failed:
     lblStatus.ForeColor = RGB(170, 35, 35)
-    lblStatus.Caption = "Not saved: " & Err.Description
+    lblStatus.Caption = "Not built: " & Err.Description
 End Function
 
-Private Sub cmdSave_Click()
-    Call SaveCurrentFile
+Public Function VerifyCurrentExecutable() As Boolean
+    Dim settings As FtpSettings
+    On Error GoTo Failed
+    ReadEmbeddedSettings txtOutput.Text, settings
+    lblStatus.ForeColor = RGB(25, 110, 55)
+    lblStatus.Caption = "Verified embedded settings for " & settings.UserName & " at " & settings.Host & "."
+    VerifyCurrentExecutable = True
+    Exit Function
+Failed:
+    lblStatus.ForeColor = RGB(170, 35, 35)
+    lblStatus.Caption = "Not verified: " & Err.Description
+End Function
+
+Private Sub cmdBuild_Click()
+    Call BuildCurrentExecutable
 End Sub
 
-Private Sub cmdView_Click()
-    If frmViewer.OpenConfiguration(txtFileName.Text) Then
-        frmViewer.Show
-    Else
-        lblStatus.ForeColor = RGB(170, 35, 35)
-        lblStatus.Caption = frmViewer.lblStatus.Caption
-    End If
+Private Sub cmdVerify_Click()
+    Call VerifyCurrentExecutable
 End Sub
 
 Private Sub cmdDefaults_Click()
-    Dim settings As DisplaySettings
-    SetDefaultSettings settings
+    Dim settings As FtpSettings
+    SetExampleSettings settings
     ApplySettings settings
     lblStatus.ForeColor = vbWindowText
-    lblStatus.Caption = "Defaults restored in the form. Save to update the file."
+    lblStatus.Caption = "Example settings restored. Build a new EXE to embed them."
 End Sub
 
 Private Sub cmdClose_Click()

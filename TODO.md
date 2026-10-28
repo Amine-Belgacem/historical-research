@@ -29,7 +29,7 @@ Cleanup requested for this repository:
 
 - [x] Rename the study Executable Configuration Builder and update collection links.
 - [x] Verify the archived byte layout and original-file hashes; document the reader-position mismatch, overwritten byte, and FTP error-handling limits.
-- [x] Add readable offline VB6 builder/viewer projects with clear forms, validated configuration storage, native tests, and a reproducible build script.
+- [x] Provide two readable VB6 source projects with clear forms: an EXE builder and a self-reading template, with embedded FTP settings, native tests, and a reproducible build script.
 
 ## RapidShare research
 
