@@ -5,11 +5,10 @@
 /.DS_Store
 /Thumbs.db
 /Desktop.ini
-# Generated output from the offline VB6 configuration example.
+# Generated output from the VB6 executable configuration project.
 /executable-configuration-builder/build/
 /executable-configuration-builder/source/*.vbw
 /executable-configuration-builder/source/*.log
-/executable-configuration-builder/tests/*.vbw
-/executable-configuration-builder/tests/*.log
 /executable-configuration-builder/source/MSSCCPRJ.SCC
 /executable-configuration-builder/source/*.cfg
+/executable-configuration-builder/source/*.exe

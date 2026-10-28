@@ -5,7 +5,6 @@ Original credits and project metadata are retained in the files alongside each w
 - The MUI controls in the [unfinished VB6 project](keylogger-unfinished/README.md) credit **Gally Home Corp / Koak Design**, copyright 2002.
 - A routine in that project's `ModBinder.bas` credits **skodaman**.
 - The [batch password generator](password-generator/README.md) credits **SwYaraB** in its original banner.
-- The [Executable Configuration Builder](executable-configuration-builder/README.md) retains its original comments and **Softrix** project metadata.
 
 The collection includes both personal project work and the components used within it. Existing names and credits are preserved as written.
 

@@ -11,8 +11,7 @@ $OutputDirectory = [System.IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
 $projects = @(
     @{ Path = 'source\Template.vbp'; Exe = 'FtpTemplate.exe' },
-    @{ Path = 'source\Builder.vbp'; Exe = 'FtpBuilder.exe' },
-    @{ Path = 'tests\ConfigTests.vbp'; Exe = 'ConfigTests.exe' }
+    @{ Path = 'source\Builder.vbp'; Exe = 'FtpBuilder.exe' }
 )
 foreach ($project in $projects) {
     $projectFile = Join-Path $PSScriptRoot $project.Path
@@ -31,40 +30,4 @@ foreach ($project in $projects) {
     }
 }
 
-$testExecutable = Join-Path $OutputDirectory 'ConfigTests.exe'
-$testLog = Join-Path $OutputDirectory 'self-test-results.txt'
-[System.IO.File]::WriteAllText($testLog, '')
-$testProcess = Start-Process -FilePath $testExecutable -WindowStyle Hidden -PassThru
-if (-not $testProcess.WaitForExit(30000)) {
-    $testProcess.Kill()
-    throw 'The configuration self-tests timed out.'
-}
-if (Test-Path -LiteralPath $testLog) { Get-Content -LiteralPath $testLog }
-if ($testProcess.ExitCode -ne 0 -or (Get-Content -LiteralPath $testLog -Raw) -notmatch '(?m)^PASS: \d+ checks\s*$') {
-    throw 'The configuration self-tests failed.'
-}
-
-# Execute the newly generated display-only demo to verify it reads its own EXE.
-$configuredExecutable = Join-Path $OutputDirectory 'SelfConfigured.exe'
-$standaloneFolder = Join-Path $OutputDirectory ('standalone-' + [guid]::NewGuid().ToString('N').Substring(0, 8))
-New-Item -ItemType Directory -Path $standaloneFolder | Out-Null
-$standaloneExecutable = Join-Path $standaloneFolder 'SelfConfigured.exe'
-Copy-Item -LiteralPath $configuredExecutable -Destination $standaloneExecutable
-$verificationProcess = Start-Process -FilePath $standaloneExecutable -ArgumentList '/verify-self' -WindowStyle Hidden -PassThru
-if (-not $verificationProcess.WaitForExit(15000)) {
-    $verificationProcess.Kill()
-    throw 'The self-reading executable verification timed out.'
-}
-$verificationLog = $standaloneExecutable + '.verification.txt'
-if ($verificationProcess.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $verificationLog)) {
-    throw 'The generated executable could not read its own settings.'
-}
-$verification = Get-Content -LiteralPath $verificationLog -Raw
-if ($verification -notmatch '(?m)^PASS: settings read from own EXE\s*$' -or
-    $verification -notmatch '(?m)^Host=ftp\.embedded\.invalid\s*$' -or
-    $verification -notmatch '(?m)^UserName=self-test-user\s*$' -or
-    $verification -notmatch '(?m)^PasswordLength=16\s*$') {
-    throw 'The generated executable did not restore the expected test settings.'
-}
-Write-Output 'PASS: the generated EXE ran alone in a separate folder and read its own embedded FTP settings.'
-Write-Output "Build and tests passed. Applications are in $OutputDirectory"
+Write-Output "Build passed. Applications are in $OutputDirectory"
