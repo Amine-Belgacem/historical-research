@@ -1,38 +1,28 @@
-# Early software and systems research
+# Historical Research
 
-**Amine Belgacem · Personal work from the 2000s**
+Independent investigations from the 2000s into binary formats, network protocols, authentication behavior, and web application security. The collection brings together working notebooks, recorded results, and original applications developed alongside the research.
 
-A collection of software projects and research covering Windows applications, binary formats, network protocols, and web security. Each project brings its technical description, outcomes, and original files together in one folder.
+## Investigations
 
-## Research
-
-| Work | Period | Focus |
+| Study | Period | Focus and results |
 |---|---|---|
-| [RAR format investigation](rar-format-investigation/README.md) | 2008 | Manual hex analysis, visual archive maps, compression and timestamp findings, and original password-handling conclusions. |
-| [MSN network investigation](msn-network-investigation/README.md) | 2000s | Protocol research, failed-sign-in account-lockout discovery, and the resulting Hotmail Kira application, kept together. |
-| [Web security research: SQL injection](web-security-investigation/README.md) | Circa 2007–2008 | Independent SQL injection research, websites studied, and original database results. |
-| [RapidShare account brute-force research](rapidshare-account-research/README.md) | 2000s | Account enumeration and password guessing, with the research and both original applications together. |
+| [RAR Format Investigation](rar-format-investigation/README.md) | 2008 | Controlled samples, hex comparisons, and manual byte editing to investigate archive structure, compression, timestamps, CRCs, and password handling. Includes three original notebooks and tables mapping the findings. |
+| [MSN Network Investigation](msn-network-investigation/README.md) | 2000s | Connection and authentication research, including the discovery that continued failed sign-ins maintained a Hotmail account lockout. Includes the research notebook and the resulting Hotmail Kira application. |
+| [Web Security Research: SQL Injection](web-security-investigation/README.md) | Circa 2007–2008 | SQL injection investigations across multiple web applications, with the websites studied and four original database result files. |
+| [RapidShare Account Research](rapidshare-account-research/README.md) | 2000s | Login-response analysis for account enumeration, followed by password-list testing. Includes the original account finder and account cracker projects. |
 
-## Applications
+## Configuration example
 
-| Work | Focus |
-|---|---|
-| [Trojan Builder Configuration](trojan-builder-configuration/README.md) | How historical Trojan builders embedded FTP reporting settings into generated executables, demonstrated by two VB6 projects. |
+[Trojan Builder Configuration](trojan-builder-configuration/README.md) provides an explanatory VB6 implementation of a historical builder/template pattern. The builder embeds example FTP settings into a template executable; the generated program reads and displays those settings from its own file.
 
-## Folder layout
+The example includes two editable VB6 projects and a build script. It demonstrates configuration packaging with a display-only template.
 
-```text
-work-name/
-    README.md          Introduction and explanation
-    originals/         Original files, unchanged
-```
+## Reading the collection
 
-Original filenames, directory structure, encodings, resources, binaries, and existing credits remain unchanged for the files retained in each `originals/` folder. The introductions and summary tables were prepared in 2026. The original `digital-archive-2000s` repository remains untouched.
+Each investigation's README explains its methods, findings, and associated files. Retained notebooks, project files, and recorded results are kept under `originals/`, with their original contents, encodings, resources, and existing credits preserved.
 
-The MSN investigation also contains a `hotmail-kira/` subfolder for its resulting application, with the complete original project inside it.
+Hotmail Kira is included within the MSN investigation under `hotmail-kira/`. The RapidShare study keeps its finder and cracker together under `originals/`. The configuration example contains its editable implementation under `source/`.
 
-The Trojan Builder Configuration contains its two editable VB6 projects under `source/`, with a build script.
+The collection remains private because some retained originals contain personal and account-related material.
 
-This repository is private because the complete originals include personal and account-related material.
-
-[Timeline](TIMELINE.md) · [Credits](CREDITS.md) · [To-do](TODO.md)
+[Timeline](TIMELINE.md) · [Credits](CREDITS.md)
