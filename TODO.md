@@ -27,12 +27,6 @@ Cleanup requested for this repository:
 - [x] Compile and verify the example with native VB6.
 - [x] Keep only the working project, forms, shared code, project group, build script, and README; remove historical originals, analysis, and test-only files.
 
-## Early VB6 Security Prototypes
-
-- [x] Group the unfinished keylogger and MSN credential-stealer projects under one study, keeping their source layouts separate.
-- [x] Remove generated executables, empty scratch files, logs, workspace metadata, and thumbnail caches from the curated projects.
-- [x] Explain architecture, shared components, known defects, and missing dependencies without adding or correcting application logic.
-
 ## RapidShare research
 
 - [x] Bring the RapidShare research, account finder, and account cracker into one folder in this collection, preserving all original files and updating the index and timeline.

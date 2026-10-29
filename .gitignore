@@ -12,10 +12,3 @@
 /trojan-builder-configuration/source/MSSCCPRJ.SCC
 /trojan-builder-configuration/source/*.cfg
 /trojan-builder-configuration/source/*.exe
-# Generated output and IDE/cache files from the historical prototypes.
-/vb6-security-prototypes/**/*.exe
-/vb6-security-prototypes/**/*.vbw
-/vb6-security-prototypes/**/*.log
-/vb6-security-prototypes/**/MSSCCPRJ.SCC
-/vb6-security-prototypes/**/Thumbs.db
-/vb6-security-prototypes/**/Desktop.ini

@@ -2,9 +2,6 @@
 
 Original credits and project metadata are retained in the files alongside each work.
 
-- The MUI controls in the [keylogger prototype](vb6-security-prototypes/keylogger-prototype/README.md) credit **Gally Home Corp / Koak Design**, copyright 2002.
-- A routine in `ModBinder.bas`, shared by both [VB6 prototypes](vb6-security-prototypes/README.md), credits **skodaman**.
-
 The collection includes both personal project work and the components used within it. Existing names and credits are preserved as written.
 
 Component-specific credits remain in their original files.
