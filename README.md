@@ -23,6 +23,4 @@ Each investigation's README explains its methods, findings, and associated files
 
 Hotmail Kira is included within the MSN investigation under `hotmail-kira/`. The RapidShare study keeps its finder and cracker together under `originals/`. The configuration example contains its editable implementation under `source/`.
 
-The collection remains private because some retained originals contain personal and account-related material.
-
 [Timeline](TIMELINE.md) · [Credits](CREDITS.md)
